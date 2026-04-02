@@ -1,0 +1,273 @@
+/* ============================================
+   DOMAINE GUILLOT-BROUX — Styles partagés
+   Couleurs inspirées du site officiel :
+   - Fond : blanc cassé / beige très clair
+   - Texte : noir/gris profond
+   - Accents : bordeaux foncé + beige doré
+   ============================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Couleurs fidèles au site officiel */
+  --bg:          #F7F4EF;      /* fond beige très clair (crème) */
+  --bg-light:    #FFFFFF;      /* blanc pur pour les sections claires */
+  --bg-mid:      #EDE8DF;      /* beige moyen, sections alternées */
+  --bg-dark:     #2B1A0F;      /* brun très foncé pour les zones sombres */
+
+  --bordeaux:    #6B0F1A;      /* rouge bordeaux profond — couleur principale */
+  --bordeaux-2:  #8C1A28;      /* bordeaux moyen */
+  --bordeaux-3:  #A8283A;      /* bordeaux clair */
+
+  --beige:       #C8A96E;      /* beige doré — accents */
+  --beige-light: #E2D4B7;      /* beige très clair */
+  --beige-pale:  #F0EAD8;      /* beige pâle pour fonds */
+
+  --text:        #1A1209;      /* quasi-noir, texte principal */
+  --text-mid:    #3D2B1A;      /* brun foncé, texte secondaire */
+  --text-light:  #7A6550;      /* brun clair, texte tertiaire */
+  --text-muted:  #A89880;      /* beige, texte désactivé */
+
+  --border:      #D9CEBE;      /* bordure beige claire */
+  --border-mid:  #C4B49A;      /* bordure beige moyenne */
+
+  /* Sidebar */
+  --sidebar-w:   240px;
+  --sidebar-bg:  #1C1008;      /* fond très sombre, quasi-noir brun */
+  --sidebar-border: rgba(200,169,110,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR — Navigation gauche
+   ============================================ */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 36px 28px 28px;
+  border-bottom: 1px solid var(--sidebar-border);
+}
+.sidebar-logo a { text-decoration: none; }
+.sidebar-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--beige);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  display: block;
+}
+.sidebar-logo-sub {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200,169,110,0.45);
+  margin-top: 5px;
+  display: block;
+}
+.sidebar-logo-line {
+  width: 24px; height: 1px;
+  background: rgba(200,169,110,0.3);
+  margin-top: 14px;
+}
+
+.sidebar-nav {
+  padding: 28px 0;
+  flex: 1;
+}
+.sidebar-section-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200,169,110,0.3);
+  padding: 0 28px;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+.sidebar-section-label:first-child { margin-top: 0; }
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 28px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.25s;
+  border-left: 2px solid transparent;
+  position: relative;
+}
+.sidebar-nav a:hover {
+  color: var(--beige);
+  background: rgba(200,169,110,0.06);
+  border-left-color: rgba(200,169,110,0.3);
+}
+.sidebar-nav a.active {
+  color: var(--beige);
+  background: rgba(200,169,110,0.1);
+  border-left-color: var(--beige);
+}
+.sidebar-nav a .nav-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+.sidebar-nav a.active .nav-dot { opacity: 1; }
+
+/* Sous-liens vins */
+.sidebar-sub {
+  padding: 4px 0 4px 42px;
+}
+.sidebar-sub a {
+  padding: 7px 28px 7px 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: rgba(255,255,255,0.35);
+  border-left: none;
+  gap: 8px;
+}
+.sidebar-sub a:hover {
+  color: rgba(200,169,110,0.8);
+  background: none;
+  border-left: none;
+}
+
+.sidebar-bottom {
+  padding: 20px 28px;
+  border-top: 1px solid var(--sidebar-border);
+}
+.sidebar-cert {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(200,169,110,0.35);
+  line-height: 1.8;
+}
+.sidebar-cert strong { color: rgba(200,169,110,0.55); display: block; }
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* ============================================
+   TYPOGRAPHIE COMMUNE
+   ============================================ */
+.section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.section-body {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-mid);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--sidebar-bg);
+  padding: 36px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(200,169,110,0.1);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  color: rgba(200,169,110,0.5);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.footer-nav { display: flex; gap: 24px; }
+.footer-nav a {
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-nav a:hover { color: var(--beige); }
+.footer-copy { font-size: 0.63rem; color: rgba(255,255,255,0.15); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+.mobile-nav-toggle {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 300;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
+  width: 44px; height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+}
+.mobile-nav-toggle span {
+  display: block; width: 100%; height: 1px;
+  background: var(--beige); opacity: 0.7;
+  transition: all 0.3s;
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-nav-toggle { display: flex; }
+  footer { padding: 28px 20px; }
+}
