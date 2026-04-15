@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Domaine — Histoire &amp; Philosophie · Guillot-Broux, Cruzille</title>
+<meta name="description" content="Histoire du Domaine Guillot-Broux à Cruzille. Pionniers bio en Mâconnais depuis 1954, 17 ha de vignes certifiées AB, labour au cheval, vinification naturelle.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/domaine">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Le Domaine Guillot-Broux — Histoire &amp; Philosophie">
+<meta property="og:description" content="Pionniers de l'agriculture biologique en Mâconnais depuis 1954. Labour au cheval, 17 ha de vignes, vinification naturelle à Cruzille.">
+<meta property="og:image" content="domaine-hero.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header {
+  padding: 80px 60px 72px;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid rgba(200,169,110,0.12);
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: ''; position: absolute;
+  right: -40px; top: 50%; transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20rem; font-weight: 300; line-height: 1;
+  color: rgba(200,169,110,0.03);
+  white-space: nowrap; pointer-events: none;
+  content: 'Domaine';
+  letter-spacing: -0.04em;
+}
+.breadcrumb {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 28px;
+}
+.breadcrumb a {
+  font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  text-decoration: none; transition: color 0.3s;
+}
+.breadcrumb a:hover { color: var(--beige); }
+.breadcrumb-sep { font-size: 0.62rem; color: rgba(255,255,255,0.15); }
+.breadcrumb-cur {
+  font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(200,169,110,0.6);
+}
+.page-eyebrow {
+  font-size: 0.62rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--beige);
+  margin-bottom: 16px; opacity: 0.7;
+}
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 300; color: #F7F4EF;
+  line-height: 0.95; margin-bottom: 20px;
+}
+.page-title em { font-style: italic; color: var(--beige); }
+.page-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: rgba(247,244,239,0.52);
+  font-weight: 300; line-height: 1.85; max-width: 520px;
+}
+
+/* PAGE NAV INTERNE */
+.page-subnav {
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px;
+  display: flex; gap: 0;
+  position: sticky; top: 0; z-index: 50;
+}
+.page-subnav a {
+  padding: 16px 24px;
+  font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-light);
+  text-decoration: none; transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.page-subnav a:hover { color: var(--bordeaux); border-bottom-color: var(--beige-light); }
+.page-subnav a.active { color: var(--bordeaux); border-bottom-color: var(--bordeaux); }
+
+/* SECTIONS */
+.sec { padding: 80px 60px; }
+.sec-white { background: var(--bg-light); }
+.sec-cream { background: var(--bg); }
+.sec-mid { background: var(--bg-mid); }
+.sec-dark { background: var(--sidebar-bg); }
+
+.sec-inner { max-width: 1100px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.two-col-rev { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+
+/* PHOTO PLACEHOLDERS */
+.photo-ph {
+  width: 100%;
+  background: linear-gradient(145deg, #1A0A0A 0%, #3D1212 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; padding: 32px;
+}
+.photo-ph-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; color: rgba(200,169,110,0.12);
+}
+.photo-ph-label {
+  font-size: 0.58rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(200,169,110,0.3);
+  text-align: center; line-height: 1.9;
+}
+
+/* TIMELINE */
+.timeline { margin-top: 44px; }
+.tl { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
+.tl::before {
+  content: ''; position: absolute;
+  left: 26px; top: 32px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(107,15,26,0.2), transparent);
+}
+.tl:last-child::before { display: none; }
+.tl-year-col { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; }
+.tl-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; color: var(--bordeaux);
+  font-weight: 300; line-height: 1;
+}
+.tl-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--bordeaux); opacity: 0.35;
+}
+.tl-text { font-size: 0.87rem; line-height: 1.75; color: var(--text-mid); padding-top: 1px; }
+
+/* INFO CARDS */
+.info-card {
+  border-left: 2px solid var(--beige);
+  padding: 16px 20px;
+  background: var(--bg);
+  margin-bottom: 16px;
+}
+.info-card h4 {
+  font-size: 0.58rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--bordeaux);
+  margin-bottom: 6px; opacity: 0.8;
+}
+.info-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; color: var(--text-mid); line-height: 1.6;
+}
+
+/* CITATION */
+.citation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  font-weight: 300; line-height: 1.35;
+  color: #F7F4EF; font-style: italic;
+  margin: 32px 0;
+}
+.citation em { font-style: normal; color: var(--beige); }
+
+/* PRATIQUES */
+.pratiques-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px; }
+.pratique { padding: 22px; }
+.pratique:nth-child(odd) { background: rgba(255,255,255,0.03); }
+.pratique:nth-child(even) { background: rgba(255,255,255,0.015); }
+.pratique-icon { color: var(--beige); font-size: 1rem; margin-bottom: 8px; opacity: 0.6; }
+.pratique-title {
+  font-size: 0.62rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--beige);
+  margin-bottom: 6px; opacity: 0.85;
+}
+.pratique-desc { font-size: 0.8rem; line-height: 1.7; color: rgba(255,255,255,0.45); }
+.cert-box {
+  margin-top: 36px;
+  border: 1px solid rgba(200,169,110,0.22);
+  padding: 22px 28px;
+  display: inline-flex; gap: 20px; align-items: center;
+}
+.cert-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem; font-weight: 300;
+  color: var(--beige); line-height: 1;
+}
+.cert-label { }
+.cert-label span:first-child {
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  display: block;
+}
+.cert-label span:last-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; color: rgba(255,255,255,0.7);
+  display: block; margin-top: 3px;
+}
+
+/* VIGNOBLE */
+.villages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+.vg-card { padding: 28px; border-top: 3px solid; }
+.vg-card:nth-child(1) { border-color: var(--bordeaux); }
+.vg-card:nth-child(2) { border-color: var(--bordeaux-2); }
+.vg-card:nth-child(3) { border-color: var(--bordeaux-3); }
+.vg-village {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300;
+  color: var(--text); margin-bottom: 4px;
+}
+.vg-app {
+  font-size: 0.58rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--bordeaux);
+  margin-bottom: 14px; opacity: 0.75;
+}
+.vg-desc { font-size: 0.83rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 16px; }
+.vg-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.vg-tag {
+  font-size: 0.58rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 9px;
+  border: 1px solid var(--border); color: var(--text-muted);
+}
+
+/* VINIFICATION */
+.vinif-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; }
+.vc { padding: 36px 32px; background: var(--bg); }
+.vc h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300;
+  color: var(--text); margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--beige-light);
+}
+.vstep { display: flex; gap: 12px; margin-bottom: 16px; }
+.vstep-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; color: var(--beige);
+  min-width: 22px; font-weight: 300; line-height: 1.4;
+}
+.vstep-t { font-size: 0.86rem; line-height: 1.75; color: var(--text-mid); }
+.vstep-t strong { font-weight: 500; color: var(--text); }
+
+/* NÉGOCE */
+.negoce-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+.nc {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.nc-photo {
+  width: 100%; aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1A0A0A, #6B0F1A);
+  display: flex; align-items: center; justify-content: center;
+}
+.nc-photo span {
+  font-size: 0.58rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(200,169,110,0.3);
+  text-align: center; padding: 0 20px;
+}
+.nc-body { padding: 28px; }
+.nc-app {
+  font-size: 0.58rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--bordeaux);
+  margin-bottom: 5px; opacity: 0.8;
+}
+.nc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 300;
+  color: var(--text); margin-bottom: 10px;
+}
+.nc-cepage { font-size: 0.75rem; color: var(--text-light); font-style: italic; margin-bottom: 14px; }
+.nc-desc { font-size: 0.84rem; line-height: 1.75; color: var(--text-mid); }
+.nc-badge {
+  display: inline-block; margin-top: 16px;
+  font-size: 0.58rem; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 4px 10px;
+  border: 1px solid rgba(107,15,26,0.25); color: var(--bordeaux-2);
+}
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; }
+.co h4 {
+  font-size: 0.58rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--beige);
+  margin-bottom: 10px; opacity: 0.7;
+}
+.co p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.75;
+}
+
+@media (max-width: 960px) {
+  .page-header, .sec { padding: 56px 20px; }
+  .page-subnav { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .two-col, .two-col-rev, .vinif-cols, .negoce-cards, .villages-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pratiques-grid { grid-template-columns: 1fr; }
+  .cert-box { flex-direction: column; gap: 12px; width: 100%; box-sizing: border-box; }
+}
+@media (max-width: 480px) {
+  .page-header { padding: 48px 16px 36px; }
+  .sec { padding: 40px 16px; }
+  .page-subnav { display: none; }
+  .cert-box { padding: 16px; }
+  .cert-year { font-size: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+@media (max-width: 360px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="sidebar-logo-name">Guillot-Broux</span>
+      <span class="sidebar-logo-sub">Domaine viticole · Cruzille</span>
+      <div class="sidebar-logo-line"></div>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Navigation</div>
+    <a href="index.html"><span class="nav-dot"></span>Accueil</a>
+    <a href="domaine.html" class="active"><span class="nav-dot"></span>Le Domaine</a>
+    <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
+    <div class="sidebar-section-label" style="margin-top:24px;">Sur cette page</div>
+    <div class="sidebar-sub">
+      <a href="#histoire">↳ Histoire</a>
+      <a href="#philosophie">↳ Agriculture Bio</a>
+      <a href="#vignoble">↳ Le Vignoble</a>
+      <a href="#vinification">↳ Vinification</a>
+      <a href="#negoce">↳ Le Négoce</a>
+    </div>
+    <div class="sidebar-section-label" style="margin-top:24px;">Informations</div>
+    <a href="index.html#contact"><span class="nav-dot"></span>Contact</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="sidebar-cert">
+      <strong>Agriculture Biologique</strong>
+      Certifié depuis 1991<br>
+      17 ha · 3 villages<br>
+      Cruzille · Bourgogne
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-cur">Le Domaine</span>
+    </div>
+    <div class="page-eyebrow">Cruzille · Mâconnais · Bourgogne</div>
+    <h1 class="page-title">Le <em>Domaine</em><br>&amp; le Négoce</h1>
+    <p class="page-intro">Trois générations de vignerons, une philosophie inchangée depuis 1954 : cultiver la vigne avec respect pour que chaque terroir s'exprime librement.</p>
+  </div>
+
+  <nav class="page-subnav">
+    <a href="#histoire" class="active">Histoire</a>
+    <a href="#philosophie">Agriculture Bio</a>
+    <a href="#vignoble">Vignoble</a>
+    <a href="#vinification">Vinification</a>
+    <a href="#negoce">Le Négoce</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HISTOIRE -->
+  <section class="sec sec-white" id="histoire">
+    <div class="sec-inner">
+      <div class="two-col">
+        <div>
+          <div class="section-label">Notre histoire</div>
+          <h2 class="section-title">Une famille,<br>une terre,<br>une conviction</h2>
+          <p class="section-body">En 1954, Pierre et Jeannine Guillot créent le premier domaine viticole biologique de Bourgogne à Cruzille. Jean-Gérard Guillot, leur fils, approfondit sa connaissance au Domaine de la Chanal à Brouilly puis chez Bernard Michelot à Meursault.</p>
+          <div class="timeline">
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">1954</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Pierre et Jeannine Guillot créent le premier domaine biologique de Bourgogne, influencés par Max Leglise (INRA), André Biré et Jules Chauvet.</div>
+            </div>
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">1978</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Jean-Gérard Guillot fonde le Domaine Guillot-Broux avec Jacqueline Broux, avec à peine un hectare de vigne.</div>
+            </div>
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">1991</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Certification Agriculture Biologique. Le domaine atteint progressivement 17 hectares sur 3 villages.</div>
+            </div>
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">2008</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Disparition de Jean-Gérard Guillot. Ses fils Emmanuel et Patrice reprennent le domaine avec humilité et fierté.</div>
+            </div>
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">2011</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Replantation du Clos de la Mollepierre (3ha), ancienne propriété des moines de Cluny depuis le Xe siècle.</div>
+            </div>
+            <div class="tl">
+              <div class="tl-year-col"><div class="tl-year">2016</div><div class="tl-dot"></div></div>
+              <div class="tl-text">Création du négoce haute-couture : Pouilly-Fuissé et Saint-Véran, mêmes exigences que le domaine.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="overflow:hidden;">
+            <img src="portrait-vigneron.png" alt="Emmanuel Guillot — dégustation en cave" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;">
+          </div>
+          <div style="padding:16px 20px;background:var(--bg-mid);margin-top:2px;">
+            <div style="font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--bordeaux);margin-bottom:4px;opacity:0.8;">Le vigneron</div>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-mid);line-height:1.6;font-style:italic;">"Notre père était un vigneron, un homme de la terre, de la vigne, et du vin."</p>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-top:6px;">Emmanuel &amp; Patrice Guillot</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+            <div class="photo-ph" style="aspect-ratio:1;padding:0;overflow:hidden;">
+              <img src="domaine-hero.png" alt="Façade du domaine" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div class="photo-ph" style="aspect-ratio:1;padding:0;overflow:hidden;">
+              <img src="pierre-1876.png" alt="Pierre gravée 1876 sur le domaine" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <div class="info-card">
+              <h4>Surface totale</h4>
+              <p>17 hectares sur 3 villages</p>
+            </div>
+            <div class="info-card">
+              <h4>Production</h4>
+              <p>80 000 à 100 000 bouteilles/an</p>
+            </div>
+            <div class="info-card">
+              <h4>Cépages</h4>
+              <p>Chardonnay · Chardonnay Muscaté · Pinot Noir · Gamay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHIE / BIO -->
+  <section class="sec sec-dark" id="philosophie">
+    <div class="sec-inner">
+      <div class="section-label" style="color:var(--beige);opacity:0.8;">Agriculture biologique</div>
+      <h2 class="section-title" style="color:#F7F4EF;">Le berceau du bio<br>en Bourgogne</h2>
+      <div class="two-col-rev">
+        <div>
+          <blockquote class="citation">"Un bon vin se fait à la vigne, <em>pas au chai</em>."</blockquote>
+          <p class="section-body" style="color:rgba(255,255,255,0.58);">Cruzille est reconnu comme le berceau de l'agriculture biologique en Bourgogne. Depuis trois générations, nous n'avons jamais utilisé de produits chimiques de synthèse. Notre objectif : préserver la vie microbienne des sols pour que nos vins reflètent fidèlement leur terroir.</p>
+          <div class="cert-box">
+            <div class="cert-year">1991</div>
+            <div class="cert-label">
+              <span>Certification officielle</span>
+              <span>Agriculture Biologique</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;overflow:hidden;">
+            <img src="cheval-vigne.png" alt="Labour au cheval dans les vignes" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;display:block;">
+          </div>
+        </div>
+        <div class="pratiques-grid">
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">Engrais verts</div>
+            <p class="pratique-desc">Couverts végétaux pour enrichir les sols sans intrant chimique.</p>
+          </div>
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">Labours</div>
+            <p class="pratique-desc">Travail du sol pour aérer et stimuler la vie microbienne.</p>
+          </div>
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">Lutte naturelle</div>
+            <p class="pratique-desc">Zéro pesticide chimique. Soufre, cuivre et préparations naturelles.</p>
+          </div>
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">Sélection massale</div>
+            <p class="pratique-desc">Conservation du patrimoine génétique propre au domaine.</p>
+          </div>
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">Sans levurage</div>
+            <p class="pratique-desc">Fermentation 100% naturelle avec les levures indigènes.</p>
+          </div>
+          <div class="pratique">
+            <div class="pratique-icon">✦</div>
+            <div class="pratique-title">SO₂ maîtrisé</div>
+            <p class="pratique-desc">Sulfites au strict minimum pour conserver sans masquer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIGNOBLE -->
+  <section class="sec sec-cream" id="vignoble">
+    <div class="sec-inner">
+      <div class="two-col">
+        <div>
+          <div class="section-label">Le vignoble</div>
+          <h2 class="section-title">17 hectares,<br>3 villages,<br>un style unique</h2>
+          <p class="section-body">Les vignes s'étendent sur trois villages aux personnalités géologiques distinctes. Chaque parcelle est vinifiée séparément — seuls les grands terroirs sont commercialisés individuellement après au moins 10 ans de vigne.</p>
+          <p class="section-body" style="margin-top:14px;">Les noms des lieux-dits racontent le territoire : Combettes (petite combe), Geniévrières (lieu des genévriers), Perrières (lieu pierreux).</p>
+        </div>
+        <div style="overflow:hidden;">
+          <img src="vignoble-clos.png" alt="Les coteaux du Mâconnais — vignoble Guillot-Broux avec le clos" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+          <div style="padding:12px 16px;background:var(--bordeaux);">
+            <p style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Coteaux du Mâconnais · Cruzille</p>
+          </div>
+        </div>
+      </div>
+      <!-- Grappe de Pinot Noir + texte cépages -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+        <div style="overflow:hidden;position:relative;">
+          <img src="raisins-pinot-noir.png" alt="Grappe de Pinot Noir — vendanges Guillot-Broux" style="width:100%;height:260px;object-fit:cover;object-position:center 40%;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(74,14,14,0.85) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;">
+            <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--beige);margin-bottom:4px;">Cépage rouge</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:#fff;">Pinot Noir</div>
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;line-height:1.6;">Cultivé à Cruzille et Grévilly. Vendanges manuelles, éraflage partiel, pigeages matin et soir.</p>
+          </div>
+        </div>
+        <div style="background:var(--bg-mid);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+          <div style="font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--bordeaux);opacity:0.8;">Les cépages du domaine</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:2px;">Chardonnay</div>
+            <div style="font-size:0.75rem;color:var(--text-light);">7 cuvées blanches · Terroirs Cruzille, Grévilly, Chardonnay</div>
+          </div>
+          <div style="height:1px;background:var(--border);"></div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:2px;">Chardonnay Muscaté</div>
+            <div style="font-size:0.75rem;color:var(--text-light);">Cépage rare · Les Molières 1936 · Grévilly</div>
+          </div>
+          <div style="height:1px;background:var(--border);"></div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:2px;">Pinot Noir</div>
+            <div style="font-size:0.75rem;color:var(--text-light);">La Myotte · Les Geniévrières rouge · Cruzille &amp; Grévilly</div>
+          </div>
+          <div style="height:1px;background:var(--border);"></div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text);margin-bottom:2px;">Gamay</div>
+            <div style="font-size:0.75rem;color:var(--text-light);">Beaumont · Cordon de Royat · Cruzille</div>
+          </div>
+        </div>
+      </div>
+      <div class="villages-grid">
+        <div class="vg-card">
+          <div class="vg-village">Cruzille</div>
+          <div class="vg-app">Mâcon Cruzille · Bourgogne Rouge</div>
+          <p class="vg-desc">Calcaire oolithique très pierreux, riche en fer et manganèse. Vins d'une grande minéralité, structure incisive. Nécessitent du temps pour s'exprimer.</p>
+          <div class="vg-tags">
+            <span class="vg-tag">Calcaire oolithique</span>
+            <span class="vg-tag">Exposition est</span>
+            <span class="vg-tag">Chardonnay · Pinot Noir · Gamay</span>
+          </div>
+        </div>
+        <div class="vg-card">
+          <div class="vg-village">Grévilly</div>
+          <div class="vg-app">Mâcon Cruzille</div>
+          <p class="vg-desc">Argilo-calcaire Bathonien profond (3-4m). La dalle calcaire s'est effondrée, créant une profondeur exceptionnelle. Vins charmeurs, grande minéralité avec l'âge.</p>
+          <div class="vg-tags">
+            <span class="vg-tag">Argilo-calcaire</span>
+            <span class="vg-tag">Profondeur 3-4m</span>
+            <span class="vg-tag">Chardonnay Muscaté · Pinot Noir</span>
+          </div>
+        </div>
+        <div class="vg-card">
+          <div class="vg-village">Chardonnay</div>
+          <div class="vg-app">Mâcon Chardonnay</div>
+          <p class="vg-desc">Village qui a donné son nom au cépage. Argile bleue sur fond calcaire. Exposition sud. Vins concentrés, notes grillées, richesse aromatique.</p>
+          <div class="vg-tags">
+            <span class="vg-tag">Argile bleue</span>
+            <span class="vg-tag">Exposition sud</span>
+            <span class="vg-tag">Chardonnay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VINIFICATION -->
+  <section class="sec sec-mid" id="vinification">
+    <div class="sec-inner">
+      <div class="section-label">Au chai</div>
+      <h2 class="section-title">La vinification</h2>
+      <p class="section-body">Vendanges 100% manuelles, rendements 30–55 hl/ha, fermentations naturelles sans levurage, élevage en fûts de chêne 228L pour les cuvées de terroir.</p>
+
+      <!-- Photo panoramique cave fûts + bouteilles -->
+      <div style="margin-top:32px;overflow:hidden;">
+        <img src="cave-futs-bouteilles.png" alt="Cave du domaine — fûts de chêne et bouteilles en élevage" style="width:100%;height:320px;object-fit:cover;object-position:center 60%;display:block;">
+        <div style="background:var(--bg-light);padding:14px 24px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+          <div style="font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--bordeaux);opacity:0.8;">La cave du domaine</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Fûts de chêne 228L (= 300 bouteilles) · Élevage moyen : 11 mois · Bouteilles en cours de vieillissement</div>
+        </div>
+      </div>
+
+      <div class="vinif-cols" style="margin-top:2px;">
+        <div class="vc">
+          <h3>Vins Blancs — Chardonnay</h3>
+          <div class="vstep"><div class="vstep-n">1</div><div class="vstep-t"><strong>Vendanges manuelles</strong> avec tri à la vigne. Seules les grappes parfaites sont récoltées.</div></div>
+          <div class="vstep"><div class="vstep-n">2</div><div class="vstep-t"><strong>Pressurage immédiat</strong> pour éviter toute altération oxydative du Chardonnay.</div></div>
+          <div class="vstep"><div class="vstep-n">3</div><div class="vstep-t"><strong>Fermentations alcoolique et malolactique en fûts de chêne</strong> 228L pour les cuvées de terroir.</div></div>
+          <div class="vstep"><div class="vstep-n">4</div><div class="vstep-t"><strong>Élevage 11 mois</strong> sur lies fines en fûts. En cuves pour le Mâcon Villages.</div></div>
+          <div class="vstep"><div class="vstep-n">5</div><div class="vstep-t"><strong>Mise en bouteille</strong> sans filtration excessive pour conserver le caractère du terroir.</div></div>
+        </div>
+        <div class="vc" style="position:relative;overflow:hidden;padding:0;">
+          <h3 style="padding:28px 32px 20px;">Vins Rouges — Pinot Noir &amp; Gamay</h3>
+          <div style="padding:0 32px 28px;">
+            <div class="vstep"><div class="vstep-n">1</div><div class="vstep-t"><strong>Vendanges manuelles</strong>, tri à la vigne. Éraflage partiel selon le millésime.</div></div>
+            <div class="vstep"><div class="vstep-n">2</div><div class="vstep-t"><strong>Fermentation en cuves ~3 semaines.</strong> Pigeages matin et soir pour une extraction douce.</div></div>
+            <div class="vstep"><div class="vstep-n">3</div><div class="vstep-t"><strong>Descente en fûts</strong> pour la fermentation malolactique après décuvage.</div></div>
+            <div class="vstep"><div class="vstep-n">4</div><div class="vstep-t"><strong>Élevage en fûts de chêne</strong> pour les cuvées de terroir. Durée variable selon le millésime.</div></div>
+            <div class="vstep"><div class="vstep-n">5</div><div class="vstep-t"><strong>Mise en bouteille</strong> sans collage ni filtration pour préserver l'expression naturelle.</div></div>
+          </div>
+          <!-- Photo allée de fûts intégrée en bas de la colonne -->
+          <div style="overflow:hidden;">
+            <img src="cave-futs-alignes.png" alt="Allée de fûts en cave — Domaine Guillot-Broux" style="width:100%;height:200px;object-fit:cover;object-position:center;display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÉGOCE -->
+  <section class="sec sec-white" id="negoce">
+    <div class="sec-inner">
+      <div class="section-label">Négoce haute-couture · depuis 2016</div>
+      <h2 class="section-title">D'autres terroirs,<br>les mêmes exigences</h2>
+      <p class="section-body" style="max-width:600px;">Emmanuel et Patrice Guillot ont créé une activité de négoce en 2016 pour proposer d'autres appellations emblématiques de la région, en conservant strictement leurs exigences biologiques et leur vision du terroir.</p>
+      <div style="margin-top:20px;padding:20px 24px;border-left:2px solid var(--beige);background:var(--bg);">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-mid);line-height:1.8;font-style:italic;">"Les mêmes exigences, d'autres terroirs. Toujours le respect absolu de la vigne et du vin."</p>
+      </div>
+      <div class="negoce-cards">
+        <div class="nc">
+          <div class="nc-photo"><span>Photo bouteille Pouilly-Fuissé<br>— Source : guillot-broux.com —</span></div>
+          <div class="nc-body">
+            <div class="nc-app">Négoce · Blanc</div>
+            <div class="nc-name">Pouilly-Fuissé</div>
+            <div class="nc-cepage">100% Chardonnay · Mâconnais</div>
+            <p class="nc-desc">L'appellation emblématique du Mâconnais. Raisins sélectionnés sur parcelles biologiques. Vinification identique aux cuvées du domaine : fermentation et élevage en fûts.</p>
+            <span class="nc-badge">Agriculture biologique</span>
+          </div>
+        </div>
+        <div class="nc">
+          <div class="nc-photo"><span>Photo bouteille Saint-Véran<br>— Source : guillot-broux.com —</span></div>
+          <div class="nc-body">
+            <div class="nc-app">Négoce · Blanc</div>
+            <div class="nc-name">Saint-Véran</div>
+            <div class="nc-cepage">100% Chardonnay · Mâconnais</div>
+            <p class="nc-desc">Au carrefour du Mâconnais et du Beaujolais. Chardonnay fruité et minéral sur sols calcaires et granitiques. La même rigueur que pour les cuvées du domaine.</p>
+            <span class="nc-badge">Agriculture biologique</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec sec-dark" id="contact">
+    <div class="sec-inner">
+      <div class="contact-grid">
+        <div class="co">
+          <h4>Adresse</h4>
+          <p>Le Bourg<br>71260 Cruzille<br>Mâconnais, Bourgogne</p>
+        </div>
+        <div class="co">
+          <h4>Téléphone</h4>
+          <p>+33 (0)3 85 33 29 74<br>+33 (0)3 85 34 31 53</p>
+        </div>
+        <div class="co">
+          <h4>Email</h4>
+          <p>domaine.guillotbroux<br>@wanadoo.fr</p>
+        </div>
+        <div class="co">
+          <h4>Caveau</h4>
+          <p>Lun–Ven<br>8h30–12h · 14h–18h<br>Sam–Dim sur RDV</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Domaine Guillot-Broux</div>
+    <nav class="footer-nav">
+      <a href="index.html">Accueil</a>
+      <a href="domaine.html">Le Domaine</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Cruzille · Certifié AB 1991</div>
+  </footer>
+
+</div>
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
+});
+// Highlight subnav on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+const links = document.querySelectorAll('.page-subnav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  links.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#'+cur) a.classList.add('active'); });
+});
+</script>
+</body>
+</html>

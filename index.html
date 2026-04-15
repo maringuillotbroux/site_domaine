@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accueil — Domaine Guillot-Broux · Vins Biologiques, Mâconnais</title>
+<meta name="description" content="Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 17 hectares, vendanges manuelles.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/">
+
+<!-- Open Graph / Partage réseaux sociaux -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Domaine Guillot-Broux — Vins Biologiques · Mâconnais">
+<meta property="og:description" content="Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 9 cuvées de terroir, Mâcon Cruzille, Grévilly, Chardonnay.">
+<meta property="og:image" content="domaine-hero.png">
+<meta property="og:url" content="https://www.guillot-broux.com/">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Performance : préconnexion Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Schema.org — données structurées pour les moteurs de recherche -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Winery",
+  "name": "Domaine Guillot-Broux",
+  "url": "https://www.guillot-broux.com",
+  "telephone": "+33385332974",
+  "email": "domaine.guillotbroux@wanadoo.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Le Bourg",
+    "addressLocality": "Cruzille",
+    "postalCode": "71260",
+    "addressRegion": "Bourgogne",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "46.47",
+    "longitude": "4.85"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:30",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "14:00",
+      "closes": "18:00"
+    }
+  ],
+  "description": "Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 17 hectares, 9 cuvées de parcelle unique, vendanges manuelles.",
+  "foundingDate": "1978",
+  "areaServed": "Mâconnais, Bourgogne, France",
+  "hasMap": "https://maps.google.com/?q=Cruzille+71260",
+  "sameAs": [
+    "https://www.guillot-broux.com"
+  ]
+}
+</script>
+<style>
+/* ---- BADGE AB AGRICULTURE BIOLOGIQUE ---- */
+.ab-badge {
+  position: absolute;
+  top: 36px; right: 48px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+}
+.ab-badge-inner {
+  width: 80px; height: 80px;
+  border-radius: 12px;
+  background: #3E7D2B;
+  border: 3px solid #4E9935;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+.ab-letters {
+  font-family: 'Jost', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.ab-sub {
+  font-size: 0.38rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.3;
+  text-align: center;
+  padding: 0 4px;
+  margin-top: 2px;
+}
+.ab-year {
+  margin-top: 6px;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.5;
+}
+@media (max-width: 960px) {
+  .ab-badge { top: 16px; right: 16px; }
+  .ab-badge-inner { width: 64px; height: 64px; border-radius: 10px; }
+  .ab-letters { font-size: 1.7rem; }
+  .ab-year { display: none; }
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background: var(--sidebar-bg);
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 60px 60px 72px;
+  position: relative; overflow: hidden;
+}
+.hero-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 6, 2, 0.25) 0%,
+    rgba(10, 6, 2, 0.45) 50%,
+    rgba(10, 6, 2, 0.82) 100%
+  );
+}
+.hero-bg-text {
+  position: absolute; right: -20px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(12rem, 22vw, 22rem);
+  font-weight: 300; line-height: 1;
+  color: rgba(200,169,110,0.04);
+  white-space: nowrap; pointer-events: none;
+  letter-spacing: -0.04em;
+}
+.hero-eyebrow {
+  font-size: 0.62rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: var(--beige);
+  margin-bottom: 24px; opacity: 0.7;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 300; color: #F7F4EF;
+  line-height: 0.95; letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: var(--beige); }
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: rgba(247,244,239,0.45);
+  font-weight: 300; letter-spacing: 0.15em;
+  margin-bottom: 48px;
+}
+.hero-divider {
+  width: 40px; height: 1px;
+  background: var(--beige); opacity: 0.4;
+  margin-bottom: 28px;
+}
+.hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 300;
+  color: rgba(247,244,239,0.6);
+  line-height: 1.85; max-width: 480px;
+  margin-bottom: 48px;
+}
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 12px;
+}
+.hero-badge {
+  border: 1px solid rgba(200,169,110,0.25);
+  padding: 8px 16px;
+  font-size: 0.62rem; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200,169,110,0.7);
+}
+
+/* ---- VILLAGES STRIP ---- */
+.villages-strip {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2px;
+}
+.vs { padding: 36px 40px; position: relative; overflow: hidden; background: #ffffff; }
+.vs:nth-child(1) { border-top: 3px solid var(--bordeaux); }
+.vs:nth-child(2) { border-top: 3px solid var(--bordeaux-2); background: #fafaf8; }
+.vs:nth-child(3) { border-top: 3px solid var(--bordeaux-3); background: #f7f6f3; }
+.vs::after {
+  content: ''; position: absolute;
+  right: -20px; bottom: -20px;
+  width: 110px; height: 110px;
+  border: 1px solid rgba(107,15,26,0.07);
+  border-radius: 50%;
+}
+.vs-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 300; color: var(--text);
+  margin-bottom: 4px;
+}
+.vs-app {
+  font-size: 0.58rem; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+.vs-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-mid); }
+
+
+/* CTA */
+.cta-section {
+  background: var(--bordeaux);
+  padding: 80px 60px; text-align: center;
+}
+.cta-eyebrow {
+  font-size: 0.62rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(200,169,110,0.7);
+  margin-bottom: 18px;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300; color: #fff;
+  margin-bottom: 16px;
+}
+.cta-section p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 48px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+  line-height: 1.75;
+}
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 14px 34px;
+  font-size: 0.68rem; letter-spacing: 0.18em;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s; display: inline-block;
+}
+.btn-primary { background: var(--beige); color: var(--sidebar-bg); }
+.btn-primary:hover { background: #e0c27a; }
+.btn-light { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2); }
+.btn-light:hover { background: rgba(255,255,255,0.2); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.55);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
+
+/* CONTACT MINI */
+.contact-mini {
+  background: var(--bg);
+  padding: 60px;
+  border-top: 1px solid var(--border);
+}
+.contact-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 36px;
+  max-width: 1100px;
+}
+.cm-col h4 {
+  font-size: 0.58rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--bordeaux);
+  margin-bottom: 10px; opacity: 0.8;
+}
+.cm-col p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: var(--text-mid); line-height: 1.75;
+}
+
+@media (max-width: 960px) {
+  .hero { padding: 80px 24px 56px; min-height: 90vh; }
+  .villages-strip { grid-template-columns: 1fr; }
+  .contact-mini { padding: 48px 20px; }
+  .contact-mini-grid { grid-template-columns: 1fr 1fr; }
+  .cta-section { padding: 56px 20px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 72px 16px 40px; min-height: 85vh; }
+  .hero h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .hero-desc { font-size: 1rem; }
+  .vs { padding: 24px 20px; }
+  .contact-mini-grid { grid-template-columns: 1fr 1fr; }
+  .cta-section { padding: 48px 16px; }
+}
+@media (max-width: 360px) {
+  .contact-mini-grid { grid-template-columns: 1fr; }
+  .hero-badges { gap: 8px; }
+  .hero-badge { padding: 6px 12px; font-size: 0.56rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- SKIP LINK accessibilité -->
+<a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+<!-- MOBILE TOGGLE -->
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Ouvrir le menu de navigation">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- OVERLAY MOBILE -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="sidebar-logo-name">Guillot-Broux</span>
+      <span class="sidebar-logo-sub">Domaine viticole · Cruzille</span>
+      <div class="sidebar-logo-line"></div>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Menu du site">
+    <div class="sidebar-section-label">Navigation</div>
+    <a href="index.html" class="active"><span class="nav-dot"></span>Accueil</a>
+    <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
+    <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
+
+    <div class="sidebar-section-label" style="margin-top:24px;">Informations</div>
+    <a href="domaine.html#histoire"><span class="nav-dot"></span>Histoire</a>
+    <a href="domaine.html#philosophie"><span class="nav-dot"></span>Agriculture Bio</a>
+    <a href="domaine.html#vignoble"><span class="nav-dot"></span>Le Vignoble</a>
+    <a href="domaine.html#negoce"><span class="nav-dot"></span>Le Négoce</a>
+    <a href="index.html#contact"><span class="nav-dot"></span>Contact</a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-cert">
+      <strong>Agriculture Biologique</strong>
+      Certifié depuis 1991<br>
+      17 ha · 3 villages<br>
+      Cruzille · Bourgogne
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main" id="contenu-principal" role="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="domaine-hero.png" alt="Entrée du Domaine Guillot-Broux, Cruzille" class="hero-photo">
+    <div class="hero-overlay"></div>
+
+    <!-- BADGE AB -->
+    <div class="ab-badge" aria-label="Certifié Agriculture Biologique">
+      <div class="ab-badge-inner">
+        <span class="ab-letters">ab</span>
+        <span class="ab-sub">agriculture<br>biologique</span>
+      </div>
+      <div class="ab-year">Certifié depuis 1991</div>
+    </div>
+
+    <div class="hero-bg-text">Vins</div>
+    <div class="hero-eyebrow">Mâconnais · Bourgogne · France · Depuis 1978</div>
+    <h1>Domaine<br><em>Guillot-Broux</em></h1>
+    <div class="hero-sub">Cruzille · Grévilly · Chardonnay</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Pionniers de l'agriculture biologique en Bourgogne depuis 1954, nous exprimons la singularité de chaque terroir dans chacune de nos cuvées.</p>
+    <div class="hero-badges">
+      <div class="hero-badge">Certifié AB depuis 1991</div>
+      <div class="hero-badge">17 hectares</div>
+      <div class="hero-badge">Vendanges manuelles</div>
+      <div class="hero-badge">9 cuvées de parcelle</div>
+      <div class="hero-badge">3 villages</div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES CLÉS -->
+  <div class="stats-strip reveal" aria-label="Chiffres clés du domaine">
+    <div class="stat">
+      <span class="stat-n">1954</span>
+      <span class="stat-u">Bio depuis</span>
+      <span class="stat-l">Pionniers en Bourgogne</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">17</span>
+      <span class="stat-u">hectares</span>
+      <span class="stat-l">En agriculture biologique</span>
+    </div>
+  </div>
+
+  <!-- VILLAGES -->
+  <div class="villages-strip reveal">
+    <div class="vs">
+      <div class="vs-name">Cruzille</div>
+      <div class="vs-app">Mâcon Cruzille · Bourgogne</div>
+      <p class="vs-desc">Calcaire oolithique très pierreux. Vins d'une grande minéralité, structure incisive.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-name">Grévilly</div>
+      <div class="vs-app">Mâcon Cruzille</div>
+      <p class="vs-desc">Argilo-calcaire Bathonien profond (3-4m). Vins charmeurs, grande minéralité avec l'âge.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-name">Chardonnay</div>
+      <div class="vs-app">Mâcon Chardonnay</div>
+      <p class="vs-desc">Argile bleue sur fond calcaire. Exposition sud. Vins concentrés, notes grillées.</p>
+    </div>
+  </div>
+
+  <!-- CTA PRINCIPAL -->
+  <section class="cta-section reveal">
+    <div class="cta-eyebrow">Vins biologiques depuis 1954</div>
+    <h2>Explorez notre domaine</h2>
+    <p>Trois générations de vignerons, 17 hectares cultivés en agriculture biologique au cœur du Mâconnais.</p>
+    <div class="cta-btns">
+      <a href="boutique.html" class="btn btn-primary">Commander nos vins →</a>
+      <a href="domaine.html" class="btn btn-light">Découvrir le domaine</a>
+      <a href="galerie.html" class="btn btn-outline">Galerie photos</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-mini" id="contact">
+    <div class="contact-mini-grid">
+      <div class="cm-col">
+        <h4>Adresse</h4>
+        <p>Le Bourg<br>71260 Cruzille<br>Mâconnais, Bourgogne</p>
+      </div>
+      <div class="cm-col">
+        <h4>Téléphone</h4>
+        <p>+33 (0)3 85 33 29 74<br>+33 (0)3 85 34 31 53</p>
+      </div>
+      <div class="cm-col">
+        <h4>Email</h4>
+        <p>domaine.guillotbroux<br>@wanadoo.fr</p>
+      </div>
+      <div class="cm-col">
+        <h4>Caveau — Horaires</h4>
+        <p>Lun–Ven<br>8h30–12h · 14h–18h<br>Sam–Dim sur RDV</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Domaine Guillot-Broux</div>
+    <nav class="footer-nav" aria-label="Navigation pied de page">
+      <a href="index.html">Accueil</a>
+      <a href="domaine.html">Le Domaine</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="boutique.html">Boutique</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Le Bourg, 71260 Cruzille · Certifié AB depuis 1991</div>
+  </footer>
+
+</div><!-- /.main -->
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
+});
+
+/* Animations d'entrée au scroll */
+(function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

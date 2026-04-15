@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie Photos — Vignoble, Cave &amp; Vins · Domaine Guillot-Broux</title>
+<meta name="description" content="Photos du Domaine Guillot-Broux : vignoble de Cruzille, cave et élevage en fûts, vendanges manuelles, chevaux de labour et vins du Mâconnais.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/galerie">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Galerie Photos — Domaine Guillot-Broux">
+<meta property="og:description" content="Vignoble, cave, vendanges manuelles et vins biologiques du Mâconnais. Photographies de Mathieu Cellard et Mark Thomson.">
+<meta property="og:image" content="vignoble-panorama.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header {
+  padding: 80px 60px 64px;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid rgba(200,169,110,0.12);
+}
+.breadcrumb { display:flex;align-items:center;gap:10px;margin-bottom:28px; }
+.breadcrumb a { font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.3s; }
+.breadcrumb a:hover { color:var(--beige); }
+.breadcrumb-sep { font-size:0.62rem;color:rgba(255,255,255,0.15); }
+.breadcrumb-cur { font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(200,169,110,0.6); }
+.page-eyebrow { font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--beige);margin-bottom:16px;opacity:0.7; }
+.page-title { font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:#F7F4EF;line-height:0.95;margin-bottom:18px; }
+.page-title em { font-style:italic;color:var(--beige); }
+.page-intro { font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(247,244,239,0.5);font-weight:300;line-height:1.85;max-width:500px; }
+
+/* BANDEAU INSTRUCTIONS */
+.instructions {
+  background: var(--beige-pale);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 60px;
+  display: flex; align-items: center; gap: 20px;
+}
+.inst-ico { font-size: 1.3rem; opacity: 0.5; flex-shrink: 0; }
+.inst-text { font-size: 0.8rem; line-height: 1.7; color: var(--text-mid); }
+.inst-text strong { color: var(--bordeaux); font-weight: 500; }
+.inst-text a { color: var(--bordeaux); }
+
+/* FILTRES */
+.filtres {
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px;
+  display: flex; gap: 0; overflow-x: auto;
+}
+.filtre {
+  padding: 14px 22px;
+  font-size: 0.65rem; letter-spacing: 0.16em;
+  text-transform: uppercase; cursor: pointer;
+  border: none; background: none;
+  color: var(--text-light); transition: all 0.25s;
+  position: relative; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.filtre:hover { color: var(--bordeaux); }
+.filtre.active { color: var(--bordeaux); border-bottom-color: var(--bordeaux); }
+
+/* GALERIE */
+.galerie-wrap { padding: 48px 60px 80px; background: var(--bg); }
+.galerie-inner { max-width: 1200px; }
+
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+/* Slot photo de base */
+.slot {
+  position: relative; overflow: hidden;
+  background: var(--bg-mid);
+  border: 1px dashed var(--border);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.slot:hover { border-color: var(--bordeaux); }
+
+/* Variantes de taille */
+.slot.tall    { grid-row: span 2; }
+.slot.wide    { grid-column: span 2; }
+
+/* Vraie image quand ajoutée */
+.slot img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.45s ease; }
+.slot:hover img { transform: scale(1.04); }
+
+/* Contenu placeholder */
+.slot-ph {
+  width: 100%; min-height: 180px; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.slot-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300;
+  color: var(--beige-light); line-height: 1;
+}
+.slot-label {
+  font-size: 0.58rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--text-muted);
+  line-height: 1.8;
+}
+.slot-cat {
+  font-size: 0.55rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bordeaux); opacity: 0.6;
+}
+.slot-hint { font-size: 0.6rem; color: var(--text-muted); font-style: italic; margin-top: 2px; }
+.slot-add {
+  margin-top: 8px;
+  font-size: 0.58rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--beige);
+  opacity: 0.4; padding: 4px 10px;
+  border: 1px dashed rgba(200,169,110,0.3);
+}
+
+/* Overlay info au hover (si image présente) */
+.slot-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,18,9,0.85) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.35s;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 20px;
+}
+.slot:hover .slot-overlay { opacity: 1; }
+.overlay-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: #fff; font-weight: 300;
+}
+.overlay-sub {
+  font-size: 0.58rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--beige);
+  margin-top: 3px; opacity: 0.8;
+}
+
+/* SECTION VIDÉO */
+.video-section { padding: 0 60px 60px; background: var(--bg); }
+.video-inner { max-width: 1200px; }
+.video-label-top { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 6px; opacity: 0.75; }
+.video-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--text); margin-bottom: 20px; }
+.video-ph {
+  width: 100%; aspect-ratio: 16/9;
+  background: var(--bg-mid);
+  border: 1px dashed var(--border-mid);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+}
+.video-play {
+  width: 60px; height: 60px;
+  border: 1px solid var(--bordeaux);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.4;
+}
+.video-play::after {
+  content: '';
+  border-left: 16px solid var(--bordeaux);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  margin-left: 4px;
+}
+.video-ph-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); text-align: center; line-height: 1.9; }
+
+/* CRÉDITS */
+.credits { padding: 40px 60px; background: var(--bg-mid); border-top: 1px solid var(--border); }
+.credits-inner { max-width: 1200px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.credit-col h4 { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 10px; opacity: 0.8; }
+.credit-col p { font-size: 0.83rem; line-height: 1.75; color: var(--text-mid); }
+.credit-col a { color: var(--bordeaux); }
+.credit-col code { font-size: 0.78rem; background: var(--bg-light); padding: 1px 6px; border: 1px solid var(--border); color: var(--bordeaux-2); }
+
+@media (max-width: 960px) {
+  .page-header { padding: 60px 20px 48px; }
+  .instructions { padding: 16px 20px; }
+  .filtres { padding: 0 16px; }
+  .galerie-wrap { padding: 32px 20px 60px; }
+  .galerie-grid { grid-template-columns: 1fr 1fr; }
+  .slot.wide { grid-column: span 1; }
+  .video-section, .credits { padding-left: 20px; padding-right: 20px; }
+  .credits-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .page-header { padding: 48px 16px 36px; }
+  .galerie-grid { grid-template-columns: 1fr; }
+  .slot.tall { grid-row: span 1; }
+  .galerie-wrap { padding: 24px 12px 48px; }
+  .filtres { gap: 6px; }
+  .filtre { padding: 7px 12px; font-size: 0.6rem; }
+  /* Overlay toujours visible sur mobile (pas de hover) */
+  .slot-overlay { opacity: 1; background: linear-gradient(to top, rgba(26,18,9,0.6) 0%, transparent 55%); }
+  .slot img { transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="sidebar-logo-name">Guillot-Broux</span>
+      <span class="sidebar-logo-sub">Domaine viticole · Cruzille</span>
+      <div class="sidebar-logo-line"></div>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Navigation</div>
+    <a href="index.html"><span class="nav-dot"></span>Accueil</a>
+    <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
+    <a href="galerie.html" class="active"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
+    <div class="sidebar-section-label" style="margin-top:24px;">Catégories</div>
+    <div class="sidebar-sub">
+      <a href="#" onclick="filtrer('vignoble',event)">↳ Vignoble</a>
+      <a href="#" onclick="filtrer('cave',event)">↳ Cave &amp; Chai</a>
+      <a href="#" onclick="filtrer('vins',event)">↳ Les Vins</a>
+      <a href="#" onclick="filtrer('vendanges',event)">↳ Vendanges</a>
+      <a href="#" onclick="filtrer('domaine',event)">↳ Le Domaine</a>
+    </div>
+    <div class="sidebar-section-label" style="margin-top:24px;">Informations</div>
+    <a href="index.html#contact"><span class="nav-dot"></span>Contact</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="sidebar-cert">
+      <strong>Agriculture Biologique</strong>
+      Certifié depuis 1991<br>
+      Crédits : Mathieu Cellard<br>
+      &amp; Mark Thomson
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-cur">Galerie</span>
+    </div>
+    <div class="page-eyebrow">Vignoble · Cave · Vins · Terroir</div>
+    <h1 class="page-title">Galerie <em>Photos</em></h1>
+    <p class="page-intro">Les images du domaine, du vignoble, de la cave et des vins. Cliquez sur chaque emplacement pour y ajouter votre photo.</p>
+  </div>
+
+  <div class="instructions">
+    <div class="inst-ico">📷</div>
+    <div class="inst-text">
+      Pour ajouter une photo, remplacez le contenu d'un <strong>.slot</strong> par <strong>&lt;img src="photo.jpg" alt="..."&gt;</strong>. Photos disponibles sur <a href="https://www.guillot-broux.com/galerie/" target="_blank">guillot-broux.com/galerie</a> · Crédits : <strong>Mathieu Cellard</strong> &amp; <strong>Mark Thomson</strong>.
+    </div>
+  </div>
+
+  <div class="filtres">
+    <button class="filtre active" onclick="filtrer('tout', null, this)">Tout</button>
+    <button class="filtre" onclick="filtrer('vignoble', null, this)">Vignoble</button>
+    <button class="filtre" onclick="filtrer('cave', null, this)">Cave &amp; Chai</button>
+    <button class="filtre" onclick="filtrer('vins', null, this)">Les Vins</button>
+    <button class="filtre" onclick="filtrer('vendanges', null, this)">Vendanges</button>
+    <button class="filtre" onclick="filtrer('domaine', null, this)">Le Domaine</button>
+  </div>
+
+  <section class="galerie-wrap">
+    <div class="galerie-inner">
+      <div class="galerie-grid" id="galerie-grid">
+
+        <!-- 01 – Grande image vignoble -->
+        <div class="slot tall" data-cat="vignoble" style="min-height:420px;">
+          <img loading="lazy" src="vignoble-panorama.jpg" alt="Vignoble Guillot-Broux — Cruzille, Mâconnais">
+          <div class="slot-overlay"><div class="overlay-name">Le Vignoble</div><div class="overlay-sub">Cruzille · Mâconnais</div></div>
+        </div>
+
+        <!-- 02 -->
+        <div class="slot" data-cat="domaine" style="min-height:200px;">
+          <img src="domaine-hero.png" alt="Entrée du Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Le Domaine</div><div class="overlay-sub">Cruzille</div></div>
+        </div>
+
+        <!-- 03 – Bouteilles capsules -->
+        <div class="slot" data-cat="vins" style="min-height:200px;">
+          <img loading="lazy" src="bouteilles-capsules.png" alt="Bouteilles Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Nos Bouteilles</div><div class="overlay-sub">Domaine Guillot-Broux</div></div>
+        </div>
+
+        <!-- 04 – Bouteilles sur fûts (wide) -->
+        <div class="slot wide" data-cat="cave" style="min-height:220px;">
+          <img loading="lazy" src="cave-bouteilles-futs.png" alt="Bouteilles et fûts en cave">
+          <div class="slot-overlay"><div class="overlay-name">Cave — Bouteilles &amp; Fûts</div><div class="overlay-sub">Élevage · Domaine Guillot-Broux</div></div>
+        </div>
+
+        <!-- 05 – Bondon sur fût -->
+        <div class="slot" data-cat="cave" style="min-height:220px;">
+          <img loading="lazy" src="fut-bondon.png" alt="Fût de chêne avec bondon">
+          <div class="slot-overlay"><div class="overlay-name">Élevage en Fûts</div><div class="overlay-sub">Cave du Domaine</div></div>
+        </div>
+
+        <!-- 06 – Vendanges homme cagette (wide) -->
+        <div class="slot wide" data-cat="vendanges" style="min-height:280px;">
+          <img loading="lazy" src="vendanges-cagette.png" alt="Vendanges manuelles — déversement des raisins">
+          <div class="slot-overlay"><div class="overlay-name">Les Vendanges</div><div class="overlay-sub">100% Manuel · Cruzille</div></div>
+        </div>
+
+        <!-- 07 – Cheval dans les vignes -->
+        <div class="slot" data-cat="vignoble" style="min-height:280px;">
+          <img loading="lazy" src="cheval-vigne.png" alt="Cheval de trait dans les vignes">
+          <div class="slot-overlay"><div class="overlay-name">Labour au Cheval</div><div class="overlay-sub">Agriculture Biologique</div></div>
+        </div>
+
+        <!-- 08 09 10 -->
+        <div class="slot" data-cat="vins" style="min-height:260px;">
+          <img loading="lazy" src="cave-bouteilles-empilees.png" alt="Bouteilles empilées en cave">
+          <div class="slot-overlay"><div class="overlay-name">Cave — Stock</div><div class="overlay-sub">Millésimes · Domaine</div></div>
+        </div>
+
+        <div class="slot" data-cat="vins" style="min-height:260px;">
+          <img loading="lazy" src="etiquettes-genievrieres.png" alt="Étiquettes Les Geniévrières en cours d'étiquetage">
+          <div class="slot-overlay"><div class="overlay-name">Les Geniévrières</div><div class="overlay-sub">Mâcon Cruzille · Étiquetage</div></div>
+        </div>
+
+        <div class="slot" data-cat="vins" style="min-height:260px;">
+          <img loading="lazy" src="verre-blanc.png" alt="Dégustation de vin blanc Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Dégustation</div><div class="overlay-sub">Vin Blanc · Chardonnay</div></div>
+        </div>
+
+        <!-- 11 – Pierre 1876 (wide) -->
+        <div class="slot wide" data-cat="domaine" style="min-height:220px;">
+          <img loading="lazy" src="pierre-1876.png" alt="Pierre gravée 1876 — Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Histoire du Domaine</div><div class="overlay-sub">Pierre gravée · 1876</div></div>
+        </div>
+
+        <!-- 12 – Terroir et verre -->
+        <div class="slot" data-cat="vins" style="min-height:220px;">
+          <img loading="lazy" src="terroir-verre.png" alt="Terroir calcaire et verre à vin">
+          <div class="slot-overlay"><div class="overlay-name">Le Terroir</div><div class="overlay-sub">Calcaire · Expression minérale</div></div>
+        </div>
+
+        <!-- 13 14 15 -->
+        <div class="slot" data-cat="cave" style="min-height:200px;">
+          <img loading="lazy" src="mout-densimetre.png" alt="Mesure de densité du moût — vinification">
+          <div class="slot-overlay"><div class="overlay-name">La Vinification</div><div class="overlay-sub">Mesure du moût · Densimètre</div></div>
+        </div>
+
+        <div class="slot" data-cat="domaine" style="min-height:200px;">
+          <img loading="lazy" src="portrait-vignerons.jpg" alt="Le vigneron — dégustation Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Le Vigneron</div><div class="overlay-sub">Dégustation · Domaine</div></div>
+        </div>
+
+        <div class="slot" data-cat="vendanges" style="min-height:200px;">
+          <img loading="lazy" src="raisins-rouge.png" alt="Raisins de Pinot Noir — Cruzille">
+          <div class="slot-overlay"><div class="overlay-name">Pinot Noir</div><div class="overlay-sub">Vendanges · Cruzille</div></div>
+        </div>
+
+        <!-- 16 – Grande finale wide+tall -->
+        <div class="slot wide tall" data-cat="vignoble" style="min-height:340px;">
+          <img loading="lazy" src="cheval-vigne.png" alt="Cheval de trait labour dans les vignes">
+          <div class="slot-overlay"><div class="overlay-name">Labour au Cheval</div><div class="overlay-sub">Agriculture Biologique · Cruzille</div></div>
+        </div>
+
+        <!-- 17 – Cave fûts -->
+        <div class="slot" data-cat="cave" style="min-height:340px;">
+          <img loading="lazy" src="cave-futs.jpg" alt="Fûts de chêne — cave Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">La Cave</div><div class="overlay-sub">Élevage · Fûts de chêne</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDÉO -->
+  <section class="video-section">
+    <div class="video-inner">
+      <div class="video-label-top">Optionnel</div>
+      <div class="video-title">Vidéo du domaine</div>
+      <div class="video-ph">
+        <!-- Remplacer par : <iframe src="https://www.youtube.com/embed/VOTRE_ID" frameborder="0" allowfullscreen style="width:100%;height:100%;border:none;"></iframe> -->
+        <div class="video-play"></div>
+        <div class="video-ph-label">Intégrer une vidéo du domaine<br>Remplacer par un iframe YouTube ou Vimeo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRÉDITS -->
+  <section class="credits">
+    <div class="credits-inner">
+      <div class="credit-col">
+        <h4>Crédits photographiques</h4>
+        <p>Photographies signées <strong>Mathieu Cellard</strong> et <strong>Mark Thomson</strong>. Toutes les images sont disponibles sur <a href="https://www.guillot-broux.com/galerie/" target="_blank">guillot-broux.com/galerie</a>.</p>
+      </div>
+      <div class="credit-col">
+        <h4>Comment ajouter une photo</h4>
+        <p>Dans chaque slot, remplacez le <code>&lt;div class="slot-ph"&gt;</code> par <code>&lt;img src="photo.jpg" alt="..."&gt;</code>. Formats recommandés : JPEG ou WebP, minimum 1200px de large.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Domaine Guillot-Broux</div>
+    <nav class="footer-nav">
+      <a href="index.html">Accueil</a>
+      <a href="domaine.html">Le Domaine</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Cruzille · Certifié AB 1991</div>
+  </footer>
+
+</div>
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
+});
+
+function filtrer(cat, e, btn) {
+  if (e) e.preventDefault();
+  document.querySelectorAll('.filtre').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.slot').forEach(slot => {
+    slot.style.display = (cat === 'tout' || slot.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
