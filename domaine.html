@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Domaine — Guillot-Broux</title>
+<title>Le Domaine — Histoire &amp; Philosophie · Guillot-Broux, Cruzille</title>
+<meta name="description" content="Histoire du Domaine Guillot-Broux à Cruzille. Pionniers bio en Mâconnais depuis 1954, 17 ha de vignes certifiées AB, labour au cheval, vinification naturelle.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/domaine">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Le Domaine Guillot-Broux — Histoire &amp; Philosophie">
+<meta property="og:description" content="Pionniers de l'agriculture biologique en Mâconnais depuis 1954. Labour au cheval, 17 ha de vignes, vinification naturelle à Cruzille.">
+<meta property="og:image" content="domaine-hero.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -286,6 +295,11 @@
   .two-col, .two-col-rev, .vinif-cols, .negoce-cards, .villages-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .pratiques-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  .page-header { padding: 40px 16px 36px; }
+  .sec { padding: 40px 16px; }
+  .page-subnav { display: none; }
+}
 </style>
 </head>
 <body>
@@ -293,6 +307,8 @@
 <button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
   <span></span><span></span><span></span>
 </button>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
@@ -307,6 +323,7 @@
     <a href="index.html"><span class="nav-dot"></span>Accueil &amp; Vins</a>
     <a href="domaine.html" class="active"><span class="nav-dot"></span>Le Domaine</a>
     <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
     <div class="sidebar-section-label" style="margin-top:24px;">Sur cette page</div>
     <div class="sidebar-sub">
       <a href="#histoire">↳ Histoire</a>
@@ -677,11 +694,18 @@
 </div>
 
 <script>
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-document.addEventListener('click', function(e) {
-  const s = document.getElementById('sidebar');
-  const t = document.querySelector('.mobile-nav-toggle');
-  if (s.classList.contains('open') && !s.contains(e.target) && !t.contains(e.target)) s.classList.remove('open');
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
 });
 // Highlight subnav on scroll
 const sections = document.querySelectorAll('section[id], div[id]');

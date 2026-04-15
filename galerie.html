@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galerie — Guillot-Broux</title>
+<title>Galerie Photos — Vignoble, Cave &amp; Vins · Domaine Guillot-Broux</title>
+<meta name="description" content="Photos du Domaine Guillot-Broux : vignoble de Cruzille, cave et élevage en fûts, vendanges manuelles, chevaux de labour et vins du Mâconnais.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/galerie">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Galerie Photos — Domaine Guillot-Broux">
+<meta property="og:description" content="Vignoble, cave, vendanges manuelles et vins biologiques du Mâconnais. Photographies de Mathieu Cellard et Mark Thomson.">
+<meta property="og:image" content="vignoble-panorama.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -177,6 +186,13 @@
   .video-section, .credits { padding-left: 20px; padding-right: 20px; }
   .credits-inner { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  .page-header { padding: 48px 16px 36px; }
+  .galerie-grid { grid-template-columns: 1fr; }
+  .galerie-wrap { padding: 24px 12px 48px; }
+  .filtres { gap: 6px; }
+  .filtre { padding: 7px 12px; font-size: 0.6rem; }
+}
 </style>
 </head>
 <body>
@@ -184,6 +200,8 @@
 <button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
   <span></span><span></span><span></span>
 </button>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
@@ -198,6 +216,7 @@
     <a href="index.html"><span class="nav-dot"></span>Accueil &amp; Vins</a>
     <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
     <a href="galerie.html" class="active"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
     <div class="sidebar-section-label" style="margin-top:24px;">Catégories</div>
     <div class="sidebar-sub">
       <a href="#" onclick="filtrer('vignoble',event)">↳ Vignoble</a>
@@ -254,14 +273,7 @@
 
         <!-- 01 – Grande image vignoble -->
         <div class="slot tall" data-cat="vignoble" style="min-height:420px;">
-          <!-- <img src="vignoble-panorama.jpg" alt="Vignoble Guillot-Broux"> -->
-          <div class="slot-ph">
-            <div class="slot-num">01</div>
-            <div class="slot-label">Vue panoramique du vignoble<br>Cruzille, Mâconnais</div>
-            <div class="slot-cat">Vignoble</div>
-            <div class="slot-hint">Crédit : Mathieu Cellard</div>
-            <div class="slot-add">+ Ajouter photo</div>
-          </div>
+          <img loading="lazy" src="vignoble-panorama.jpg" alt="Vignoble Guillot-Broux — Cruzille, Mâconnais">
           <div class="slot-overlay"><div class="overlay-name">Le Vignoble</div><div class="overlay-sub">Cruzille · Mâconnais</div></div>
         </div>
 
@@ -273,99 +285,87 @@
 
         <!-- 03 – Bouteilles capsules -->
         <div class="slot" data-cat="vins" style="min-height:200px;">
-          <img src="bouteilles-capsules.png" alt="Bouteilles Domaine Guillot-Broux">
+          <img loading="lazy" src="bouteilles-capsules.png" alt="Bouteilles Domaine Guillot-Broux">
           <div class="slot-overlay"><div class="overlay-name">Nos Bouteilles</div><div class="overlay-sub">Domaine Guillot-Broux</div></div>
         </div>
 
         <!-- 04 – Bouteilles sur fûts (wide) -->
         <div class="slot wide" data-cat="cave" style="min-height:220px;">
-          <img src="cave-bouteilles-futs.png" alt="Bouteilles et fûts en cave">
+          <img loading="lazy" src="cave-bouteilles-futs.png" alt="Bouteilles et fûts en cave">
           <div class="slot-overlay"><div class="overlay-name">Cave — Bouteilles &amp; Fûts</div><div class="overlay-sub">Élevage · Domaine Guillot-Broux</div></div>
         </div>
 
         <!-- 05 – Bondon sur fût -->
         <div class="slot" data-cat="cave" style="min-height:220px;">
-          <img src="fut-bondon.png" alt="Fût de chêne avec bondon">
+          <img loading="lazy" src="fut-bondon.png" alt="Fût de chêne avec bondon">
           <div class="slot-overlay"><div class="overlay-name">Élevage en Fûts</div><div class="overlay-sub">Cave du Domaine</div></div>
         </div>
 
         <!-- 06 – Vendanges homme cagette (wide) -->
         <div class="slot wide" data-cat="vendanges" style="min-height:280px;">
-          <img src="vendanges-cagette.png" alt="Vendanges manuelles — déversement des raisins">
+          <img loading="lazy" src="vendanges-cagette.png" alt="Vendanges manuelles — déversement des raisins">
           <div class="slot-overlay"><div class="overlay-name">Les Vendanges</div><div class="overlay-sub">100% Manuel · Cruzille</div></div>
         </div>
 
         <!-- 07 – Cheval dans les vignes -->
         <div class="slot" data-cat="vignoble" style="min-height:280px;">
-          <img src="cheval-vigne.png" alt="Cheval de trait dans les vignes">
+          <img loading="lazy" src="cheval-vigne.png" alt="Cheval de trait dans les vignes">
           <div class="slot-overlay"><div class="overlay-name">Labour au Cheval</div><div class="overlay-sub">Agriculture Biologique</div></div>
         </div>
 
         <!-- 08 09 10 -->
         <div class="slot" data-cat="vins" style="min-height:260px;">
-          <img src="cave-bouteilles-empilees.png" alt="Bouteilles empilées en cave">
+          <img loading="lazy" src="cave-bouteilles-empilees.png" alt="Bouteilles empilées en cave">
           <div class="slot-overlay"><div class="overlay-name">Cave — Stock</div><div class="overlay-sub">Millésimes · Domaine</div></div>
         </div>
 
         <div class="slot" data-cat="vins" style="min-height:260px;">
-          <img src="etiquettes-genievrieres.png" alt="Étiquettes Les Geniévrières en cours d'étiquetage">
+          <img loading="lazy" src="etiquettes-genievrieres.png" alt="Étiquettes Les Geniévrières en cours d'étiquetage">
           <div class="slot-overlay"><div class="overlay-name">Les Geniévrières</div><div class="overlay-sub">Mâcon Cruzille · Étiquetage</div></div>
         </div>
 
         <div class="slot" data-cat="vins" style="min-height:260px;">
-          <img src="verre-blanc.png" alt="Dégustation de vin blanc Guillot-Broux">
+          <img loading="lazy" src="verre-blanc.png" alt="Dégustation de vin blanc Guillot-Broux">
           <div class="slot-overlay"><div class="overlay-name">Dégustation</div><div class="overlay-sub">Vin Blanc · Chardonnay</div></div>
         </div>
 
         <!-- 11 – Pierre 1876 (wide) -->
         <div class="slot wide" data-cat="domaine" style="min-height:220px;">
-          <img src="pierre-1876.png" alt="Pierre gravée 1876 — Domaine Guillot-Broux">
+          <img loading="lazy" src="pierre-1876.png" alt="Pierre gravée 1876 — Domaine Guillot-Broux">
           <div class="slot-overlay"><div class="overlay-name">Histoire du Domaine</div><div class="overlay-sub">Pierre gravée · 1876</div></div>
         </div>
 
         <!-- 12 – Terroir et verre -->
         <div class="slot" data-cat="vins" style="min-height:220px;">
-          <img src="terroir-verre.png" alt="Terroir calcaire et verre à vin">
+          <img loading="lazy" src="terroir-verre.png" alt="Terroir calcaire et verre à vin">
           <div class="slot-overlay"><div class="overlay-name">Le Terroir</div><div class="overlay-sub">Calcaire · Expression minérale</div></div>
         </div>
 
         <!-- 13 14 15 -->
         <div class="slot" data-cat="cave" style="min-height:200px;">
-          <img src="mout-densimetre.png" alt="Mesure de densité du moût — vinification">
+          <img loading="lazy" src="mout-densimetre.png" alt="Mesure de densité du moût — vinification">
           <div class="slot-overlay"><div class="overlay-name">La Vinification</div><div class="overlay-sub">Mesure du moût · Densimètre</div></div>
         </div>
 
         <div class="slot" data-cat="domaine" style="min-height:200px;">
-          <!-- <img src="portrait-vignerons.jpg" alt="Emmanuel et Patrice Guillot"> -->
-          <div class="slot-ph">
-            <div class="slot-num">14</div>
-            <div class="slot-label">Emmanuel &amp; Patrice Guillot · portrait</div>
-            <div class="slot-cat">Le Domaine</div>
-            <div class="slot-add">+ Ajouter photo</div>
-          </div>
-          <div class="slot-overlay"><div class="overlay-name">Emmanuel &amp; Patrice</div><div class="overlay-sub">Vignerons</div></div>
+          <img loading="lazy" src="portrait-vignerons.jpg" alt="Le vigneron — dégustation Domaine Guillot-Broux">
+          <div class="slot-overlay"><div class="overlay-name">Le Vigneron</div><div class="overlay-sub">Dégustation · Domaine</div></div>
         </div>
 
-        <div class="slot" data-cat="vignoble" style="min-height:200px;">
-          <!-- <img src="clos-mollepierre-mur.jpg" alt="Clos de la Mollepierre"> -->
-          <div class="slot-ph">
-            <div class="slot-num">15</div>
-            <div class="slot-label">Cagettes de raisins<br>après récolte</div>
-            <div class="slot-cat">Vendanges</div>
-            <div class="slot-add">+ Ajouter photo</div>
-          </div>
-          <div class="slot-overlay"><div class="overlay-name">Récolte</div><div class="overlay-sub">Cagettes de Chardonnay</div></div>
+        <div class="slot" data-cat="vendanges" style="min-height:200px;">
+          <img loading="lazy" src="raisins-rouge.png" alt="Raisins de Pinot Noir — Cruzille">
+          <div class="slot-overlay"><div class="overlay-name">Pinot Noir</div><div class="overlay-sub">Vendanges · Cruzille</div></div>
         </div>
 
         <!-- 16 – Grande finale wide+tall -->
         <div class="slot wide tall" data-cat="vignoble" style="min-height:340px;">
-          <img src="cheval-vigne.png" alt="Cheval de trait labour dans les vignes">
+          <img loading="lazy" src="cheval-vigne.png" alt="Cheval de trait labour dans les vignes">
           <div class="slot-overlay"><div class="overlay-name">Labour au Cheval</div><div class="overlay-sub">Agriculture Biologique · Cruzille</div></div>
         </div>
 
         <!-- 17 – Cave fûts -->
         <div class="slot" data-cat="cave" style="min-height:340px;">
-          <img src="cave-bouteilles-empilees.png" alt="Fûts et bouteilles en cave">
+          <img loading="lazy" src="cave-futs.jpg" alt="Fûts de chêne — cave Domaine Guillot-Broux">
           <div class="slot-overlay"><div class="overlay-name">La Cave</div><div class="overlay-sub">Élevage · Fûts de chêne</div></div>
         </div>
 
@@ -414,11 +414,18 @@
 </div>
 
 <script>
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-document.addEventListener('click', function(e) {
-  const s = document.getElementById('sidebar');
-  const t = document.querySelector('.mobile-nav-toggle');
-  if (s.classList.contains('open') && !s.contains(e.target) && !t.contains(e.target)) s.classList.remove('open');
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
 });
 
 function filtrer(cat, e, btn) {

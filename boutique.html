@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique en ligne — Vins Biologiques · Domaine Guillot-Broux, Mâconnais</title>
+<meta name="description" content="Achetez les vins du Domaine Guillot-Broux en ligne. Mâcon Cruzille, Bourgogne rouge et blanc, certifiés Agriculture Biologique. Livraison à domicile.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/boutique">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boutique — Vins Biologiques Guillot-Broux">
+<meta property="og:description" content="Commandez nos vins biologiques du Mâconnais directement en ligne. Mâcon Cruzille, Bourgogne. Livraison à domicile.">
+<meta property="og:image" content="bouteilles-capsules.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header {
+  padding: 80px 60px 64px;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid rgba(200,169,110,0.12);
+}
+.breadcrumb { display:flex;align-items:center;gap:10px;margin-bottom:28px; }
+.breadcrumb a { font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.3s; }
+.breadcrumb a:hover { color:var(--beige); }
+.breadcrumb-sep { font-size:0.62rem;color:rgba(255,255,255,0.15); }
+.breadcrumb-cur { font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(200,169,110,0.6); }
+.page-eyebrow { font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--beige);margin-bottom:16px;opacity:0.7; }
+.page-title { font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:#F7F4EF;line-height:0.95;margin-bottom:18px; }
+.page-title em { font-style:italic;color:var(--beige); }
+.page-intro { font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(247,244,239,0.5);font-weight:300;line-height:1.85;max-width:520px; }
+.boutique-wrap { padding: 60px 60px 80px; background: var(--bg); min-height: 70vh; }
+.boutique-inner { max-width: 1100px; }
+#kuuFormContent { width: 100%; min-height: 600px; }
+@media (max-width: 960px) {
+  .page-header { padding: 60px 20px 48px; }
+  .boutique-wrap { padding: 32px 20px 60px; }
+}
+</style>
+</head>
+<body>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="sidebar-logo-name">Guillot-Broux</span>
+      <span class="sidebar-logo-sub">Domaine viticole · Cruzille</span>
+      <div class="sidebar-logo-line"></div>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Navigation</div>
+    <a href="index.html"><span class="nav-dot"></span>Accueil &amp; Vins</a>
+    <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
+    <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="active nav-boutique"><span class="nav-dot"></span>Boutique</a>
+    <div class="sidebar-section-label" style="margin-top:24px;">Nos vins</div>
+    <div class="sidebar-sub">
+      <a href="index.html#vins">↳ Vins blancs (7)</a>
+      <a href="index.html#vins">↳ Vins rouges (3)</a>
+      <a href="index.html#vins">↳ Négoce</a>
+    </div>
+    <div class="sidebar-section-label" style="margin-top:24px;">Informations</div>
+    <a href="domaine.html#histoire"><span class="nav-dot"></span>Histoire</a>
+    <a href="domaine.html#philosophie"><span class="nav-dot"></span>Agriculture Bio</a>
+    <a href="domaine.html#vignoble"><span class="nav-dot"></span>Le Vignoble</a>
+    <a href="domaine.html#negoce"><span class="nav-dot"></span>Le Négoce</a>
+    <a href="index.html#contact"><span class="nav-dot"></span>Contact</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="sidebar-cert">
+      <strong>Agriculture Biologique</strong>
+      Certifié depuis 1991<br>
+      17 ha · 3 villages<br>
+      Cruzille · Bourgogne
+    </div>
+  </div>
+</aside>
+<div class="main">
+  <div class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-cur">Boutique</span>
+    </div>
+    <div class="page-eyebrow">Commande en ligne · Livraison à domicile</div>
+    <h1 class="page-title">Notre <em>Boutique</em></h1>
+    <p class="page-intro">Commandez directement nos vins en ligne. Chaque bouteille est expédiée depuis le domaine, en agriculture biologique certifiée depuis 1991.</p>
+  </div>
+  <section class="boutique-wrap">
+    <div class="boutique-inner">
+      <div id="kuuFormContent" style=""></div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo">Domaine Guillot-Broux</div>
+    <nav class="footer-nav">
+      <a href="index.html">Accueil</a>
+      <a href="domaine.html">Le Domaine</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="boutique.html">Boutique</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Cruzille · Certifié AB 1991</div>
+  </footer>
+</div>
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
+});
+</script>
+<script type="text/javascript">
+window.kuuFormIframeConfig={"formContainer":"#kuuFormContent","embedded":true,"producerType":"SINGLE","saleChannel":"STANDARD","producerId":"8828","domain":"commande.kuupanda.com","hideInfo":true,"hideCover":true,"hideBackground":true};
+(function(){const s=document.createElement("script");s.src="https://prod-kuu-brand-assets.s3.eu-west-3.amazonaws.com/embed.js";document.getElementsByTagName("head")[0].appendChild(s);})()
+</script>
+</body>
+</html>

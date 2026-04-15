@@ -3,9 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Domaine Guillot-Broux — Accueil</title>
+<title>Domaine Guillot-Broux — Vins Biologiques · Mâconnais, Bourgogne</title>
+<meta name="description" content="Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 9 cuvées de parcelle, 17 hectares, vendanges manuelles.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.guillot-broux.com/">
+
+<!-- Open Graph / Partage réseaux sociaux -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Domaine Guillot-Broux — Vins Biologiques · Mâconnais">
+<meta property="og:description" content="Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 9 cuvées de terroir, Mâcon Cruzille, Grévilly, Chardonnay.">
+<meta property="og:image" content="domaine-hero.png">
+<meta property="og:url" content="https://www.guillot-broux.com/">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Performance : préconnexion Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- Schema.org — données structurées pour les moteurs de recherche -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Winery",
+  "name": "Domaine Guillot-Broux",
+  "url": "https://www.guillot-broux.com",
+  "telephone": "+33385332974",
+  "email": "domaine.guillotbroux@wanadoo.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Le Bourg",
+    "addressLocality": "Cruzille",
+    "postalCode": "71260",
+    "addressRegion": "Bourgogne",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "46.47",
+    "longitude": "4.85"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:30",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "14:00",
+      "closes": "18:00"
+    }
+  ],
+  "description": "Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 17 hectares, 9 cuvées de parcelle unique, vendanges manuelles.",
+  "foundingDate": "1978",
+  "areaServed": "Mâconnais, Bourgogne, France",
+  "hasMap": "https://maps.google.com/?q=Cruzille+71260",
+  "sameAs": [
+    "https://www.guillot-broux.com"
+  ]
+}
+</script>
 <style>
 /* ---- HERO ---- */
 .hero {
@@ -89,29 +150,30 @@
   display: grid; grid-template-columns: repeat(3,1fr);
   gap: 2px;
 }
-.vs { padding: 36px 40px; position: relative; overflow: hidden; }
-.vs:nth-child(1) { background: var(--bordeaux); }
-.vs:nth-child(2) { background: var(--bordeaux-2); }
-.vs:nth-child(3) { background: var(--bordeaux-3); }
+.vs { padding: 36px 40px; position: relative; overflow: hidden; background: #ffffff; }
+.vs:nth-child(1) { border-top: 3px solid var(--bordeaux); }
+.vs:nth-child(2) { border-top: 3px solid var(--bordeaux-2); background: #fafaf8; }
+.vs:nth-child(3) { border-top: 3px solid var(--bordeaux-3); background: #f7f6f3; }
 .vs::after {
   content: ''; position: absolute;
   right: -20px; bottom: -20px;
   width: 110px; height: 110px;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(107,15,26,0.07);
   border-radius: 50%;
 }
 .vs-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.7rem; font-weight: 300; color: #fff;
+  font-size: 1.7rem; font-weight: 300; color: var(--text);
   margin-bottom: 4px;
 }
 .vs-app {
   font-size: 0.58rem; letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: var(--bordeaux);
+  opacity: 0.75;
   margin-bottom: 14px;
 }
-.vs-desc { font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.72); }
+.vs-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-mid); }
 
 /* ---- VINS LISTE ---- */
 .vins-section { background: var(--bg-light); padding: 80px 60px; }
@@ -294,18 +356,33 @@
   .contact-mini { padding: 48px 20px; }
   .contact-mini-grid { grid-template-columns: 1fr 1fr; }
   .cta-section { padding: 56px 20px; }
+  .negoce-strip { flex-direction: column; gap: 0; }
+  .negoce-col { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 20px; }
+  .negoce-col:last-child { border-bottom: none; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 64px 16px 40px; }
+  .contact-mini-grid { grid-template-columns: 1fr; }
+  .vins-section { padding: 40px 16px; }
+  .cta-section { padding: 48px 16px; }
 }
 </style>
 </head>
 <body>
 
+<!-- SKIP LINK accessibilité -->
+<a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
 <!-- MOBILE TOGGLE -->
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Ouvrir le menu de navigation">
   <span></span><span></span><span></span>
 </button>
 
+<!-- OVERLAY MOBILE -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
 <!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" aria-label="Navigation principale">
   <div class="sidebar-logo">
     <a href="index.html">
       <span class="sidebar-logo-name">Guillot-Broux</span>
@@ -314,11 +391,12 @@
     </a>
   </div>
 
-  <nav class="sidebar-nav">
+  <nav class="sidebar-nav" aria-label="Menu du site">
     <div class="sidebar-section-label">Navigation</div>
     <a href="index.html" class="active"><span class="nav-dot"></span>Accueil &amp; Vins</a>
     <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
     <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
+    <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
 
     <div class="sidebar-section-label" style="margin-top:24px;">Nos vins</div>
     <div class="sidebar-sub">
@@ -346,7 +424,7 @@
 </aside>
 
 <!-- MAIN -->
-<div class="main">
+<div class="main" id="contenu-principal" role="main">
 
   <!-- HERO -->
   <section class="hero">
@@ -367,8 +445,32 @@
     </div>
   </section>
 
+  <!-- CHIFFRES CLÉS -->
+  <div class="stats-strip reveal" aria-label="Chiffres clés du domaine">
+    <div class="stat">
+      <span class="stat-n">1954</span>
+      <span class="stat-u">Bio depuis</span>
+      <span class="stat-l">Pionniers en Bourgogne</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">17</span>
+      <span class="stat-u">hectares</span>
+      <span class="stat-l">En agriculture biologique</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">9</span>
+      <span class="stat-u">cuvées</span>
+      <span class="stat-l">De parcelle unique</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">3</span>
+      <span class="stat-u">villages</span>
+      <span class="stat-l">Cruzille · Grévilly · Chardonnay</span>
+    </div>
+  </div>
+
   <!-- VILLAGES -->
-  <div class="villages-strip">
+  <div class="villages-strip reveal">
     <div class="vs">
       <div class="vs-name">Cruzille</div>
       <div class="vs-app">Mâcon Cruzille · Bourgogne</div>
@@ -387,7 +489,7 @@
   </div>
 
   <!-- LISTE DES VINS -->
-  <section class="vins-section" id="vins">
+  <section class="vins-section reveal" id="vins">
     <div class="vins-section-inner">
       <div class="section-label">La cave</div>
       <h2 class="section-title">Tous nos vins</h2>
@@ -561,7 +663,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section reveal">
     <h2>Découvrez le domaine &amp; son histoire</h2>
     <p>Trois générations de vignerons, 17 hectares en agriculture biologique.</p>
     <div class="cta-btns">
@@ -594,28 +696,48 @@
 
   <footer>
     <div class="footer-logo">Domaine Guillot-Broux</div>
-    <nav class="footer-nav">
+    <nav class="footer-nav" aria-label="Navigation pied de page">
       <a href="index.html">Accueil</a>
       <a href="domaine.html">Le Domaine</a>
       <a href="galerie.html">Galerie</a>
+      <a href="boutique.html">Boutique</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Cruzille · Certifié AB 1991</div>
+    <div class="footer-copy">© 2024 Domaine Guillot-Broux · Le Bourg, 71260 Cruzille · Certifié AB depuis 1991</div>
   </footer>
 
 </div><!-- /.main -->
 
 <script>
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
   const sidebar = document.getElementById('sidebar');
   const toggle = document.querySelector('.mobile-nav-toggle');
-  if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
-    sidebar.classList.remove('open');
-  }
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  toggle.classList.toggle('open');
+  overlay.classList.toggle('active');
+}
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.mobile-nav-toggle').classList.remove('open');
+  this.classList.remove('active');
 });
+
+/* Animations d'entrée au scroll */
+(function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
