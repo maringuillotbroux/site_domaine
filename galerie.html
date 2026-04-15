@@ -189,9 +189,13 @@
 @media (max-width: 480px) {
   .page-header { padding: 48px 16px 36px; }
   .galerie-grid { grid-template-columns: 1fr; }
+  .slot.tall { grid-row: span 1; }
   .galerie-wrap { padding: 24px 12px 48px; }
   .filtres { gap: 6px; }
   .filtre { padding: 7px 12px; font-size: 0.6rem; }
+  /* Overlay toujours visible sur mobile (pas de hover) */
+  .slot-overlay { opacity: 1; background: linear-gradient(to top, rgba(26,18,9,0.6) 0%, transparent 55%); }
+  .slot img { transform: none !important; }
 }
 </style>
 </head>
@@ -213,7 +217,7 @@
   </div>
   <nav class="sidebar-nav">
     <div class="sidebar-section-label">Navigation</div>
-    <a href="index.html"><span class="nav-dot"></span>Accueil &amp; Vins</a>
+    <a href="index.html"><span class="nav-dot"></span>Accueil</a>
     <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
     <a href="galerie.html" class="active"><span class="nav-dot"></span>Galerie Photos</a>
     <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>

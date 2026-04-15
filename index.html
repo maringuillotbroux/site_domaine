@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Domaine Guillot-Broux — Vins Biologiques · Mâconnais, Bourgogne</title>
-<meta name="description" content="Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 9 cuvées de parcelle, 17 hectares, vendanges manuelles.">
+<title>Accueil — Domaine Guillot-Broux · Vins Biologiques, Mâconnais</title>
+<meta name="description" content="Domaine viticole familial à Cruzille, Mâconnais. Pionniers de l'agriculture biologique en Bourgogne depuis 1954. 17 hectares, vendanges manuelles.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.guillot-broux.com/">
 
@@ -68,9 +68,67 @@
 }
 </script>
 <style>
+/* ---- BADGE AB AGRICULTURE BIOLOGIQUE ---- */
+.ab-badge {
+  position: absolute;
+  top: 36px; right: 48px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+}
+.ab-badge-inner {
+  width: 80px; height: 80px;
+  border-radius: 12px;
+  background: #3E7D2B;
+  border: 3px solid #4E9935;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+.ab-letters {
+  font-family: 'Jost', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.ab-sub {
+  font-size: 0.38rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.3;
+  text-align: center;
+  padding: 0 4px;
+  margin-top: 2px;
+}
+.ab-year {
+  margin-top: 6px;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.5;
+}
+@media (max-width: 960px) {
+  .ab-badge { top: 16px; right: 16px; }
+  .ab-badge-inner { width: 64px; height: 64px; border-radius: 10px; }
+  .ab-letters { font-size: 1.7rem; }
+  .ab-year { display: none; }
+}
+
 /* ---- HERO ---- */
 .hero {
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   background: var(--sidebar-bg);
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: flex-end;
@@ -175,156 +233,47 @@
 }
 .vs-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-mid); }
 
-/* ---- VINS LISTE ---- */
-.vins-section { background: var(--bg-light); padding: 80px 60px; }
-.vins-section-inner { max-width: 1100px; }
-
-.vins-deux-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  margin-top: 52px;
-}
-
-.col-header {
-  padding: 18px 28px;
-  display: flex; align-items: center; gap: 14px;
-}
-.col-header.blanc { background: var(--bg-mid); }
-.col-header.rouge { background: var(--bordeaux); }
-.col-header-icon {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem; line-height: 1;
-}
-.col-header.blanc .col-header-icon { color: var(--bordeaux); }
-.col-header.rouge .col-header-icon { color: rgba(255,255,255,0.5); }
-.col-header-title {
-  font-size: 0.62rem; letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-.col-header.blanc .col-header-title { color: var(--text-light); }
-.col-header.rouge .col-header-title { color: rgba(255,255,255,0.75); }
-
-.vin-row {
-  display: flex; align-items: stretch;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-light);
-  transition: background 0.2s;
-  cursor: default;
-}
-.vin-row:last-child { border-bottom: none; }
-.vin-row:hover { background: var(--beige-pale); }
-
-.vin-row-num {
-  width: 44px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; color: var(--beige);
-  opacity: 0.6; padding: 18px 0;
-}
-.vin-row-body { flex: 1; padding: 16px 12px 16px 0; }
-.vin-row-app {
-  font-size: 0.57rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--bordeaux);
-  margin-bottom: 2px; opacity: 0.75;
-}
-.vin-row-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.18rem; color: var(--text);
-  font-weight: 400; line-height: 1.2;
-  margin-bottom: 3px;
-}
-.vin-row-cepage {
-  font-size: 0.7rem; color: var(--text-light);
-  font-style: italic;
-}
-.vin-row-right {
-  padding: 16px 20px 16px 8px;
-  display: flex; flex-direction: column;
-  align-items: flex-end; justify-content: center;
-  gap: 4px;
-}
-.vtag {
-  font-size: 0.57rem; letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 3px 9px; border: 1px solid;
-  white-space: nowrap;
-}
-.vtag.blanc { border-color: var(--border-mid); color: var(--text-muted); }
-.vtag.rouge { border-color: rgba(107,15,26,0.25); color: var(--bordeaux-2); }
-
-/* Rouge rows fond légerement teinté */
-.rouge-block { background: #FDFAF8; }
-.rouge-block .vin-row { background: #FDFAF8; }
-.rouge-block .vin-row:hover { background: var(--beige-pale); }
-
-/* NÉGOCE STRIP */
-.negoce-strip {
-  background: var(--bg-mid);
-  padding: 32px 40px;
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-.negoce-left {}
-.negoce-eyebrow {
-  font-size: 0.58rem; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--bordeaux);
-  margin-bottom: 5px; opacity: 0.8;
-}
-.negoce-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem; font-weight: 300; color: var(--text);
-}
-.negoce-bottles { display: flex; gap: 12px; }
-.negoce-bottle {
-  border: 1px solid var(--border-mid);
-  padding: 12px 20px; text-align: center;
-  background: var(--bg-light);
-}
-.negoce-bottle-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem; color: var(--text); display: block;
-}
-.negoce-bottle-app {
-  font-size: 0.58rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--text-muted);
-  display: block; margin-top: 2px;
-}
 
 /* CTA */
 .cta-section {
   background: var(--bordeaux);
-  padding: 70px 60px; text-align: center;
+  padding: 80px 60px; text-align: center;
+}
+.cta-eyebrow {
+  font-size: 0.62rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(200,169,110,0.7);
+  margin-bottom: 18px;
 }
 .cta-section h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 300; color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .cta-section p {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 48px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+  line-height: 1.75;
 }
 .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn {
-  padding: 13px 32px;
+  padding: 14px 34px;
   font-size: 0.68rem; letter-spacing: 0.18em;
   text-transform: uppercase; text-decoration: none;
   transition: all 0.3s; display: inline-block;
 }
-.btn-light { background: var(--beige-light); color: var(--bordeaux); }
-.btn-light:hover { background: #fff; }
+.btn-primary { background: var(--beige); color: var(--sidebar-bg); }
+.btn-primary:hover { background: #e0c27a; }
+.btn-light { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2); }
+.btn-light:hover { background: rgba(255,255,255,0.2); }
 .btn-outline {
-  border: 1px solid rgba(255,255,255,0.35);
-  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.55);
 }
-.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-outline:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
 
 /* CONTACT MINI */
 .contact-mini {
@@ -349,22 +298,24 @@
 }
 
 @media (max-width: 960px) {
-  .hero { padding: 80px 24px 56px; }
-  .vins-section { padding: 56px 20px; }
+  .hero { padding: 80px 24px 56px; min-height: 90vh; }
   .villages-strip { grid-template-columns: 1fr; }
-  .vins-deux-cols { grid-template-columns: 1fr; }
   .contact-mini { padding: 48px 20px; }
   .contact-mini-grid { grid-template-columns: 1fr 1fr; }
   .cta-section { padding: 56px 20px; }
-  .negoce-strip { flex-direction: column; gap: 0; }
-  .negoce-col { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 20px; }
-  .negoce-col:last-child { border-bottom: none; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 64px 16px 40px; }
-  .contact-mini-grid { grid-template-columns: 1fr; }
-  .vins-section { padding: 40px 16px; }
+  .hero { padding: 72px 16px 40px; min-height: 85vh; }
+  .hero h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .hero-desc { font-size: 1rem; }
+  .vs { padding: 24px 20px; }
+  .contact-mini-grid { grid-template-columns: 1fr 1fr; }
   .cta-section { padding: 48px 16px; }
+}
+@media (max-width: 360px) {
+  .contact-mini-grid { grid-template-columns: 1fr; }
+  .hero-badges { gap: 8px; }
+  .hero-badge { padding: 6px 12px; font-size: 0.56rem; }
 }
 </style>
 </head>
@@ -393,17 +344,10 @@
 
   <nav class="sidebar-nav" aria-label="Menu du site">
     <div class="sidebar-section-label">Navigation</div>
-    <a href="index.html" class="active"><span class="nav-dot"></span>Accueil &amp; Vins</a>
+    <a href="index.html" class="active"><span class="nav-dot"></span>Accueil</a>
     <a href="domaine.html"><span class="nav-dot"></span>Le Domaine</a>
     <a href="galerie.html"><span class="nav-dot"></span>Galerie Photos</a>
     <a href="boutique.html" class="nav-boutique"><span class="nav-dot"></span>Boutique</a>
-
-    <div class="sidebar-section-label" style="margin-top:24px;">Nos vins</div>
-    <div class="sidebar-sub">
-      <a href="index.html#vins">↳ Vins blancs (7)</a>
-      <a href="index.html#vins">↳ Vins rouges (3)</a>
-      <a href="index.html#vins">↳ Négoce</a>
-    </div>
 
     <div class="sidebar-section-label" style="margin-top:24px;">Informations</div>
     <a href="domaine.html#histoire"><span class="nav-dot"></span>Histoire</a>
@@ -430,6 +374,16 @@
   <section class="hero">
     <img src="domaine-hero.png" alt="Entrée du Domaine Guillot-Broux, Cruzille" class="hero-photo">
     <div class="hero-overlay"></div>
+
+    <!-- BADGE AB -->
+    <div class="ab-badge" aria-label="Certifié Agriculture Biologique">
+      <div class="ab-badge-inner">
+        <span class="ab-letters">ab</span>
+        <span class="ab-sub">agriculture<br>biologique</span>
+      </div>
+      <div class="ab-year">Certifié depuis 1991</div>
+    </div>
+
     <div class="hero-bg-text">Vins</div>
     <div class="hero-eyebrow">Mâconnais · Bourgogne · France · Depuis 1978</div>
     <h1>Domaine<br><em>Guillot-Broux</em></h1>
@@ -457,16 +411,6 @@
       <span class="stat-u">hectares</span>
       <span class="stat-l">En agriculture biologique</span>
     </div>
-    <div class="stat">
-      <span class="stat-n">9</span>
-      <span class="stat-u">cuvées</span>
-      <span class="stat-l">De parcelle unique</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n">3</span>
-      <span class="stat-u">villages</span>
-      <span class="stat-l">Cruzille · Grévilly · Chardonnay</span>
-    </div>
   </div>
 
   <!-- VILLAGES -->
@@ -488,187 +432,15 @@
     </div>
   </div>
 
-  <!-- LISTE DES VINS -->
-  <section class="vins-section reveal" id="vins">
-    <div class="vins-section-inner">
-      <div class="section-label">La cave</div>
-      <h2 class="section-title">Tous nos vins</h2>
-      <p class="section-body" style="max-width:640px;">Chaque cuvée est l'expression fidèle d'une parcelle unique, vinifiée séparément pour révéler la personnalité de son terroir. Rendements maîtrisés entre 30 et 55 hl/ha.</p>
-
-      <div class="vins-deux-cols">
-
-        <!-- BLANCS -->
-        <div>
-          <div class="col-header blanc">
-            <span class="col-header-icon">◇</span>
-            <span class="col-header-title">Vins Blancs — Chardonnay</span>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">01</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille</div>
-              <div class="vin-row-name">Les Perrières</div>
-              <div class="vin-row-cepage">100% Chardonnay · Cruzille · plantation 1978</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Calcaire oolithique</span>
-              <span class="vtag blanc">Terrasses pierreuses</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">02</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille</div>
-              <div class="vin-row-name">Les Geniévrières</div>
-              <div class="vin-row-cepage">100% Chardonnay · Grévilly · plantation 1983</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Sol profond 3-4m</span>
-              <span class="vtag blanc">Garde 15 ans+</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">03</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille</div>
-              <div class="vin-row-name">Les Molières</div>
-              <div class="vin-row-cepage">Chardonnay Muscaté · Grévilly · vignes de 1936</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Vieilles vignes 1936</span>
-              <span class="vtag blanc">Cépage rare</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">04</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille</div>
-              <div class="vin-row-name">Le Clos</div>
-              <div class="vin-row-cepage">Chardonnay non greffé · 18 500 pieds/ha</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Non greffé</span>
-              <span class="vtag blanc">Pré-phylloxéra</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">05</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille</div>
-              <div class="vin-row-name">Clos de la Mollepierre</div>
-              <div class="vin-row-cepage">100% Chardonnay · 3ha · replantation 2011</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Ancien clos de Cluny</span>
-              <span class="vtag blanc">Sélection massale</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">06</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Chardonnay</div>
-              <div class="vin-row-name">Les Combettes</div>
-              <div class="vin-row-cepage">100% Chardonnay · Village de Chardonnay</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Exposition sud</span>
-              <span class="vtag blanc">~7 000 bouteilles</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">07</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Villages</div>
-              <div class="vin-row-name">Mâcon Villages Blanc</div>
-              <div class="vin-row-cepage">100% Chardonnay · Assemblage · Élevage en cuves</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag blanc">Entrée de gamme</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROUGES -->
-        <div class="rouge-block">
-          <div class="col-header rouge">
-            <span class="col-header-icon">◆</span>
-            <span class="col-header-title">Vins Rouges — Pinot Noir &amp; Gamay</span>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">08</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille Rouge</div>
-              <div class="vin-row-name">Beaumont</div>
-              <div class="vin-row-cepage">100% Gamay · Cruzille · Cordon de Royat</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag rouge">Gamay bourguignon</span>
-              <span class="vtag rouge">Poivré &amp; épicé</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">09</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Mâcon Cruzille Rouge</div>
-              <div class="vin-row-name">Les Geniévrières</div>
-              <div class="vin-row-cepage">100% Pinot Noir · Grévilly · 3 implantations</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag rouge">Pinot Noir</span>
-              <span class="vtag rouge">Élégant &amp; complexe</span>
-            </div>
-          </div>
-          <div class="vin-row">
-            <div class="vin-row-num">10</div>
-            <div class="vin-row-body">
-              <div class="vin-row-app">Bourgogne Rouge</div>
-              <div class="vin-row-name">La Myotte</div>
-              <div class="vin-row-cepage">100% Pinot Noir · Cruzille · greffons de Pommard</div>
-            </div>
-            <div class="vin-row-right">
-              <span class="vtag rouge">Grands millésimes</span>
-              <span class="vtag rouge">Terroir tardif</span>
-            </div>
-          </div>
-          <!-- Citation -->
-          <div style="padding:24px 24px 24px 44px;border-top:1px solid var(--border);background:var(--bg);">
-            <div style="font-size:0.57rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Accords chefs</div>
-            <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-mid);line-height:1.8;font-style:italic;">"Beaumont est la cuvée emblématique du domaine : un vrai Gamay aux allures bourguignonnes."</p>
-            <div style="font-size:0.68rem;color:var(--text-muted);margin-top:10px;">Jean Michel Carrette · Aux Terrasses ✶ Tournus</div>
-            <div style="height:1px;background:var(--border);margin:16px 0;"></div>
-            <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-mid);line-height:1.8;font-style:italic;">"Le fruit rouge intense de La Myotte accompagne le pigeon à merveille."</p>
-            <div style="font-size:0.68rem;color:var(--text-muted);margin-top:10px;">Fanny Bellenger · Sommelière</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- NÉGOCE -->
-      <div class="negoce-strip">
-        <div class="negoce-left">
-          <div class="negoce-eyebrow">Depuis 2016 — Négoce haute-couture</div>
-          <div class="negoce-title">D'autres appellations,<br>les mêmes exigences</div>
-        </div>
-        <div class="negoce-bottles">
-          <div class="negoce-bottle">
-            <span class="negoce-bottle-name">Pouilly-Fuissé</span>
-            <span class="negoce-bottle-app">Négoce · Blanc</span>
-          </div>
-          <div class="negoce-bottle">
-            <span class="negoce-bottle-name">Saint-Véran</span>
-            <span class="negoce-bottle-app">Négoce · Blanc</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
+  <!-- CTA PRINCIPAL -->
   <section class="cta-section reveal">
-    <h2>Découvrez le domaine &amp; son histoire</h2>
-    <p>Trois générations de vignerons, 17 hectares en agriculture biologique.</p>
+    <div class="cta-eyebrow">Vins biologiques depuis 1954</div>
+    <h2>Explorez notre domaine</h2>
+    <p>Trois générations de vignerons, 17 hectares cultivés en agriculture biologique au cœur du Mâconnais.</p>
     <div class="cta-btns">
-      <a href="domaine.html" class="btn btn-light">Le Domaine &amp; le Négoce →</a>
-      <a href="galerie.html" class="btn btn-outline">Galerie Photos</a>
+      <a href="boutique.html" class="btn btn-primary">Commander nos vins →</a>
+      <a href="domaine.html" class="btn btn-light">Découvrir le domaine</a>
+      <a href="galerie.html" class="btn btn-outline">Galerie photos</a>
     </div>
   </section>
 
